@@ -15,7 +15,7 @@ angular.module('provaClientApp')
   		id: 'editar',
 		nome: "O Formulario",
 		telefone: "666666666",
-		email: "fudeu@gmail.com"
+		email: "email@gmail.com"
 	},{
   		id: 'editar',
 		apelido: "fififi",
