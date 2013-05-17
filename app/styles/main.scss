@@ -42,8 +42,45 @@ input[type=text]{
 input, textarea, .uneditable-input{
 	width: 172px;
 }
+input[type="radio"], input[type="checkbox"]{
+	margin-top: -3px;
+}
 .pop{
 	>div{
+		margin-bottom: 10px;
+	}
+}
+.selectType{
+	width: 186px;
+	margin-bottom: 0;
+}
+.view-adds{
+	tr{
+		th, td{
+			white-space: nowrap;
+			overflow: hidden;
+			max-width: 50px; 
+			text-overflow: ellipsis;
+		}
+	}
+}
+.fieldset{
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-sizing: border-box;
+	padding: 20px;
+	legend{
+		width: 30%;
+		border:1px solid #ccc;
+		box-sizing: border-box;
+		padding: 0px 10px;
+		margin-bottom: 0;
+	}
+	label{
+		display: inline-block;
+		margin-right: 10px;
+	}
+	article{
 		margin-bottom: 10px;
 	}
 }
