@@ -28,37 +28,34 @@
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Adicionar Campo</h3>
 	</div>
-	<div class="modal-body">
-		<div class="pop">
+	<div class="modal-body pop">
+		<label>Tipo:</label>
+		<select ng-model="fieldNew.type" required>
+			<option value="">Selecione</option>
+			<option value="text">Text</option>
+			<option value="radio">Radio</option>
+			<option value="checkbox">Checkbox</option>
+		</select>
 		
-			<label>Tipo:</label>
-			<select ng-model="fieldNew.type" required>
-				<option value="">Selecione</option>
-				<option value="text">Text</option>
-				<option value="radio">Radio</option>
-				<option value="checkbox">Checkbox</option>
-			</select>
-			
-			<label>Label:</label>
-			<input type="text" ng-model="fieldNew.label" placeholder="Nome" required/>
+		<label>Label:</label>
+		<input type="text" ng-model="fieldNew.label" placeholder="Nome" required/>
 
-			<div ng-show="fieldNew.type=='radio'">
-				<label>Radio:</label>
-				<input type="text" ng-model="fieldNew.radios" placeholder="Exemp: Masc:M, Femi:F" />
-			</div>
-
-			<label>Opções:</label>
-			<div class="btn-group" data-toggle="buttons-radio">
-				<button type="button" class="btn" ng-click="fieldNew.required = true; fieldNew.readOnly = false">Required</button>
-				<button type="button" class="btn" ng-click="fieldNew.required = false; fieldNew.readOnly = true">Read Only</button>
-			</div>
-
-			<label>Valor Padrão:</label>
-			<input type="text" ng-model="fieldNew.value" placeholder="Caio Rolando da Rocha" />
-
-			<label>Tamanho Máximo:</label>
-			<input type="number" ng-model="fieldNew.maxLength" placeholder="25" />
+		<div ng-show="fieldNew.type=='radio'">
+			<label>Radio:</label>
+			<input type="text" ng-model="fieldNew.radios" placeholder="Exemp: Masc:M, Femi:F" />
 		</div>
+
+		<label>Opções:</label>
+		<div class="btn-group" data-toggle="buttons-radio">
+			<button type="button" class="btn" ng-click="fieldNew.required = true; fieldNew.readOnly = false">Required</button>
+			<button type="button" class="btn" ng-click="fieldNew.required = false; fieldNew.readOnly = true">Read Only</button>
+		</div>
+
+		<label>Valor Padrão:</label>
+		<input type="text" ng-model="fieldNew.value" placeholder="Caio Rolando da Rocha" />
+
+		<label>Tamanho Máximo:</label>
+		<input type="number" ng-model="fieldNew.maxLength" placeholder="25" />
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-success" ng-click="addField()" ng-show="newFieldFlag">Adcionar</button>
