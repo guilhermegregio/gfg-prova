@@ -1,61 +1,67 @@
 <div class="main">
 	<div class="hero-unit">
 		<label for="">Título formulário</label><input type="text" placeholder="titulo formulário"> <br>
-		<label for="" class="tit-filds">Filds</label> <button class="btn btn-mini btn-primary popForm">+</button>
-		<div class="hero-unit internal">
-			<article class="contFild">
+		<button class="btn btn-mini popForm" ng-click="fieldNew = {}; newFieldFlag = true;" data-toggle="modal" data-target="#addField">Novo Campo</button>
+		<div class="hero-unit internal" ng-show="fieldList.length">
+			<h3>Campos</h3>
+			<article class="contFild" ng-repeat="field in fieldList">
 				<div class="row">
-					<div class="span2">Tipo</div>
-					<div class="span2">Nome</div>
-					<div class="span2">Required</div>
-					<div class="span2">Readonly</div>
+					<div class="span2">{{field.label}}</div>
+					<div class="span2">{{field.type}}</div>
+					<div class="span2">{{field.required}}</div>
+					<div class="span2">{{field.readOnly}}</div>
 					<div class="span2">
-						<div class="btn-group" data-toggle="buttons-radio">
-							<button type="button" class="btn btn-primary">Editar</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</div>
-					</div>
-				</div>
-			</article>
-			<article class="contFild">
-				<div class="row">
-					<div class="span2">Tipo</div>
-					<div class="span2">Nome</div>
-					<div class="span2">Required</div>
-					<div class="span2">Readonly</div>
-					<div class="span2">
-						<div class="btn-group" data-toggle="buttons-radio">
-							<button type="button" class="btn btn-primary edit">Editar</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</div>
+						<button type="button" class="btn btn-primary" ng-click="editField(field)" data-toggle="modal" data-target="#addField">Editar</button>
+						<button type="button" class="btn btn-danger" ng-click="removeField(field)">Delete</button>
 					</div>
 				</div>
 			</article>
 		</div>
+		<br/>
+		<button type="button" class="btn btn-success">Visualizar</button>
+		<button type="button" class="btn btn-primary">Gravar</button>
 	</div>
 </div>
 
-<div class="hide">
-	<div class="pop">
-		<div class="btn-group"><!-- open -->
-			<button class="btn btn-type-fild">Radio</button>
-			<button class="btn dropdown-toggle" data-toggle="dropdown">
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li><a href="#">Text</a></li>
-				<li><a href="#">Checkbox</a></li>
-				<li><a href="#">Radio</a></li>
-				<li><a href="#">Textarea</a></li>
-	      	</ul>
+<div id="addField" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Adicionar Campo</h3>
+	</div>
+	<div class="modal-body">
+		<div class="pop">
+		
+			<label>Tipo:</label>
+			<select ng-model="fieldNew.type" required>
+				<option value="">Selecione</option>
+				<option value="text">Text</option>
+				<option value="radio">Radio</option>
+				<option value="checkbox">Checkbox</option>
+			</select>
+			
+			<label>Label:</label>
+			<input type="text" ng-model="fieldNew.label" placeholder="Nome" required/>
+
+			<div ng-show="fieldNew.type=='radio'">
+				<label>Radio:</label>
+				<input type="text" ng-model="fieldNew.radios" placeholder="Exemp: Masc:M, Femi:F" />
+			</div>
+
+			<label>Opções:</label>
+			<div class="btn-group" data-toggle="buttons-radio">
+				<button type="button" class="btn" ng-click="fieldNew.required = true; fieldNew.readOnly = false">Required</button>
+				<button type="button" class="btn" ng-click="fieldNew.required = false; fieldNew.readOnly = true">Read Only</button>
+			</div>
+
+			<label>Valor Padrão:</label>
+			<input type="text" ng-model="fieldNew.value" placeholder="Caio Rolando da Rocha" />
+
+			<label>Tamanho Máximo:</label>
+			<input type="number" ng-model="fieldNew.maxLength" placeholder="25" />
 		</div>
-		<div><input type="text" placeholder="label"></div>
-		<div><input type="text" placeholder="Exemp: Masc:M, Femi:F"></div>
-		<div class="btn-group" data-toggle="buttons-radio">
-			<button type="button" class="btn active">Required</button>
-			<button type="button" class="btn">Read Only</button>
-		</div>
-		<div><input type="text" placeholder="Default value"></div>
-		<div><button class="btn btn-success">Adcionar</button></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-click="addField()" ng-show="newFieldFlag">Adcionar</button>
+		<button class="btn" data-dismiss="modal">Close</button>
 	</div>
 </div>

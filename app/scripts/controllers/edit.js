@@ -1,30 +1,47 @@
 'use strict';
 
 angular.module('provaClientApp')
-  .controller('EditCtrl', function ($scope) {
-  	var popoverForm = $('.popForm');
+	.controller('EditCtrl', function ($scope) {
 
-  	popoverForm.popover({
-      title: "Filds Form",
-      html: true,
-      placement: "bottom",
-      content:function(){
-        return $('<div/>').html($('.pop').clone());
-      }
-    });
+	$scope.fieldList = [];
+	$scope.fieldNew = {};
+	$scope.newFieldFlag;
 
-    $('.edit').popover({
-      title: "Filds Form",
-      html: true,
-      placement: "left",
-      content:function(){
-        return $('<div/>').html($('.pop').clone());
-      }
-    });
+	var fieldError = function (field) {
+		var error = 0;
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+		error += field.type === undefined || field.type === "" ? 1 : 0;
+		error += field.label === undefined || field.label === "" ? 1 : 0;
+
+		if (error == 0) {
+			return false;
+		}
+
+		return true;
+	};
+
+	$scope.addField = function () {
+		if (fieldError($scope.fieldNew)) {
+			return false;
+		};
+
+		$scope.fieldList.push($scope.fieldNew);
+
+		$scope.fieldNew = {};
+
+		$('#addField').modal('hide');
+	};
+
+	$scope.editField = function (form) {
+		$scope.fieldNew = form;
+		$scope.newFieldFlag = "false";
+	};
+
+	$scope.removeField = function (form) {
+		function removeItem(element, index, array) {
+			return element.label !== form.label;
+		}
+		$scope.fieldList = $scope.fieldList.filter(removeItem);
+	};
+
+});
