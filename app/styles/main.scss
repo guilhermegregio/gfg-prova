@@ -1,0 +1,49 @@
+@import "compass_twitter_bootstrap";
+.main{
+	ul{
+		list-style: none;
+		margin:0;
+		padding:0;
+		li{
+			box-sizing: border-box;
+		}
+	}
+	p{
+		text-overflow: ellipsis;
+	}
+}
+.hero-unit{
+	padding:15px;
+}
+.hero-unit.internal{
+	background-color: #ccc;
+}
+.contFild{
+	margin-bottom:15px;
+	&:last-child{
+		margin-bottom:0;
+	}
+}
+.tit-filds{
+	display: inline-block;
+}
+input[type=text]{
+	margin-bottom: 0;
+}
+.bt-action{
+	text-align: center;
+	margin-top: 18px;
+}
+.contFild{
+	label{
+		display: inline-block;
+	}
+}
+input, textarea, .uneditable-input{
+	width: 172px;
+}
+.pop{
+	>div{
+		margin-bottom: 10px;
+	}
+}
