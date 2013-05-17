@@ -1,27 +1,8 @@
 <form>
 	<fieldset class="fieldset">
-		<legend>Titulo do Form</legend>
-		{{campos}}
-			<article>{{campoLabel}}{{campoInput}}</article>
-		{{campos}}
-		<article>
-			<label for="name">Nome:</label><input type="text" name="name" id="name" />
-		</article>
-		<article>
-			<label for="mail">E-mail:</label><input type="text" name="mail" id="mail" />
-		</article>
-		<article>
-			<label for="address">Address:</label><input type="text" name="address" id="address" size="40" />
-		</article>
-		<article>
-			<label for="address">Questão 1:</label><input type="radio" name="address" size="40" />
-			<label for="address">Questão 2:</label><input type="radio" name="address" size="40" />
-		</article>
-		<article>
-			<label for="address">Checkbox 1:</label><input type="checkbox" name="address"/>
-			<label for="address">Checkbox 2:</label><input type="checkbox" name="address"/>
-			<label for="address">Checkbox 3:</label><input type="checkbox" name="address"/>
-			<label for="address">Checkbox 4:</label><input type="checkbox" name="address"/>
+		<legend>{{viewForm.title}}</legend>
+		<article ng-model="checked" ng-repeat="field in viewForm.fields">
+				<label for="name">{{field.label}}:</label><input type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="" placeholder="{{field.defaultValue}}"/>
 		</article>
 	</fieldset>
 </form>
