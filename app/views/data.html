@@ -1,76 +1,12 @@
 <table class="view-adds table table-bordered">
 	<thead>
 		<tr>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
-			<th>NomeCampo {{NomeCampo}}</th>
+			<th ng-repeat="nome in nomes">{{nome}}</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-		</tr>
-		<tr>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-		</tr>
-		<tr>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-		</tr>
-		<tr>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
-			<td>Campo {{Campo}}</td>
+		<tr ng-repeat="dado in dados">
+			<td ng-repeat="campo in nomes">{{dado[campo]}}</td>
 		</tr>
 	</tbody>
 </table>
