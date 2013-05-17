@@ -1,42 +1,14 @@
 <div class="main">
 	<ul>
-		<li class="row-fluid hero-unit">
-			<div class="span3"><strong>Titulo</strong></div>
+		<li class="row-fluid hero-unit" ng-repeat="form in formList">
+			<div class="span3"><strong>{{form.title}}</strong></div>
 			<div class="span6">
-				<p>Nome, idade, cep...</p>
-				<p>1000</p>
+				<p>{{form.fields}}</p>
+				<p>{{form.totalRegistros|currency}}</p>
 			</div>
 			<div class="bt-action span3">
-				<ul class="btn-group">
-					<li class="btn"><a href="#/edit">Editar</a></li>
-					<li class="btn btn-primary">Excluir</li>
-				</ul>
-			</div>
-		</li>
-		<li class="row-fluid hero-unit">
-			<div class="span3"><strong>Titulo</strong></div>
-			<div class="span6">
-				<p>Nome, idade, cep...</p>
-				<p>1000 view</p>
-			</div>
-			<div class="bt-action span3">
-				<ul class="btn-group">
-					<li class="btn"><a href="#/edit">Editar</a></li>
-					<li class="btn btn-primary">Excluir</li>
-				</ul>
-			</div>
-		</li>
-		<li class="row-fluid hero-unit">
-			<div class="span3"><strong>Titulo</strong></div>
-			<div class="span6">
-				<p>Nome, idade, cep...</p>
-				<p>1000 view</p>
-			</div>
-			<div class="bt-action span3">
-				<ul class="btn-group">
-					<li class="btn"><a href="#/edit">Editar</a></li>
-					<li class="btn btn-primary">Excluir</li>
-				</ul>
+				<a href="#/edit/{{form.id}}" class="btn">Editar</a>
+				<a class="btn btn-primary" ng-click="removeForm(form.id)">Excluir</a>
 			</div>
 		</li>
 	</ul>
