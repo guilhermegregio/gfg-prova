@@ -1,8 +1,12 @@
 <form>
 	<fieldset class="fieldset">
 		<legend>{{viewForm.title}}</legend>
-		<article ng-model="checked" ng-repeat="field in viewForm.fields">
-				<label for="name">{{field.label}}:</label><input type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="" placeholder="{{field.defaultValue}}"/>
-		</article>
+			<article ng-model="checked" ng-repeat="field in viewForm.fields">
+				<label for="name">{{field.label}}:</label>
+				<input type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="" placeholder="{{field.defaultValue}}"/>
+				<span ng-repeat="(key,value) in field.radioValues">{{key}}
+					<input type="{{field.fieldType}}" value="{{value}}" name="{{field.fieldType}}">
+				</span>
+			</article>
 	</fieldset>
 </form>

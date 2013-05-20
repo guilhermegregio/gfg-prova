@@ -41,7 +41,4 @@ angular.module('provaClientApp')
 			defaultValue: ""
 		}]
 	};
-
-
-	console.log($scope.viewForm.fields[4].radioValues);
 });
