@@ -3,10 +3,17 @@
 		<legend>{{viewForm.title}}</legend>
 			<article class="article" ng-model="checked" ng-repeat="field in viewForm.fields">
 				<label for="name">{{field.label}}:</label>
-				<input type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="" placeholder="{{field.defaultValue}}"/>
-				<span ng-repeat="(key,value) in field.radioValues">{{key}}
-					<input type="{{field.fieldType}}" value="{{value}}" name="{{field.label}}">
-				</span>
+				
+				
+				<div ng-switch on="field.radioValues == null" >
+					<input ng-switch-when="true" type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="" placeholder="{{field.defaultValue}}"/>
+					
+					<div ng-switch-default>
+						<span ng-repeat="(key,value) in field.radioValues" >{{key}}
+							<input type="{{field.fieldType}}" value="{{value}}" name="{{field.label}}">
+						</span>
+					</div>
+				</div>
 			</article>
 	</fieldset>
 </form>

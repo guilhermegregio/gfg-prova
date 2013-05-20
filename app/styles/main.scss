@@ -13,15 +13,29 @@
 	}
 }
 .hero-unit{
+	background: none;
 	padding:15px;
 }
 .hero-unit.internal{
 	background-color: #ccc;
+	h3{
+		color: #000;
+		font-size: 25px;
+		text-shadow: 2px 2px 2px #666;
+	}
 }
 .contFild{
 	margin-bottom:15px;
 	&:last-child{
 		margin-bottom:0;
+	}
+	label{
+		display: inline-block;
+	}
+	.span2{
+		color: #000;
+		font-size: 14px;
+		text-shadow: 2px 2px 2px #666;
 	}
 }
 .tit-filds{
@@ -34,11 +48,6 @@ input[type=text]{
 	text-align: center;
 	margin-top: 18px;
 }
-.contFild{
-	label{
-		display: inline-block;
-	}
-}
 input, textarea, .uneditable-input{
 	width: 172px;
 }
@@ -48,6 +57,15 @@ input[type="radio"], input[type="checkbox"]{
 .pop{
 	>div{
 		margin-bottom: 10px;
+	}
+	select, option{
+		width: 100%;
+	}
+	input[type="text"], input[type="number"]{
+		width: 98%;
+	}
+	button{
+		width: 50.3%;
 	}
 }
 .selectType{
@@ -84,4 +102,21 @@ input[type="radio"], input[type="checkbox"]{
 	article{
 		margin-bottom: 10px;
 	}
+}
+.viewEdit{
+	margin-top: 15px;
+	th{
+		vertical-align: middle;
+		h3{
+			display: inline-block;
+			margin:0;
+			margin-right: 15px;
+		}
+	}
+	td{
+		vertical-align: middle;
+	}
+}
+.btPageEdit{
+	float:right;
 }

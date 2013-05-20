@@ -1,28 +1,35 @@
 <div class="main">
 	<div class="hero-unit">
 		<label for="">Título formulário</label><input type="text" placeholder="titulo formulário"> <br>
-		<button class="btn btn-mini popForm" ng-click="fieldNew = {}; newFieldFlag = true;" data-toggle="modal" data-target="#addField">Novo Campo</button>
-		<div class="hero-unit internal" ng-show="fieldList.length">
-			<h3>Campos</h3>
-			<article class="contFild" ng-repeat="field in fieldList">
-				<div class="row">
-					<div class="span2">label:{{field.label}}</div>
-					<div class="span2">field:{{field.type}}</div>
-					<div class="span2">required:{{field.required}}</div>
-					<div class="span2">readonly:{{field.readOnly}}</div>
-					<div class="span2">
-						<button type="button" class="btn btn-primary" ng-click="editField(field)" data-toggle="modal" data-target="#addField">Editar</button>
-						<button type="button" class="btn btn-danger" ng-click="removeField(field)">Delete</button>
-					</div>
-				</div>
-			</article>
-		</div>
+
+		<table class="viewEdit table table-bordered">
+			<thead>
+				<tr>
+					<th colspan="10"><h3>Campos</h3><button class="btn btn-mini popForm" ng-click="fieldNew = {}; newFieldFlag = true;" data-toggle="modal" data-target="#addField">Novo Campo</button></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="field in fieldList">
+					<td>label:{{field.label}}</td>
+					<td>type:{{field.type}}</td>
+					<td>required:{{field.required}}</td>
+					<td>readonly:{{field.readOnly}}</td>
+					<td>
+						<div class="btPageEdit">
+							<button type="button" class="btn btn-primary" ng-click="editField(field)" data-toggle="modal" data-target="#addField">Editar</button>
+							<button type="button" class="btn btn-danger" ng-click="removeField(field)">Delete</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<br/>
 		<button type="button" class="btn btn-success">Visualizar</button>
 		<button type="button" class="btn btn-primary">Gravar</button>
 	</div>
 </div>
 
+<!-- Modal -->
 <div id="addField" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
