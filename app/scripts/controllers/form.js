@@ -26,7 +26,7 @@ angular.module('provaClientApp')
 		},{
 			label: "Concorda com os termos",
 			fieldType: "checkbox",
-			required: true,
+			required: false,
 			readOnly: "",
 			defaultValue: ""
 		},{

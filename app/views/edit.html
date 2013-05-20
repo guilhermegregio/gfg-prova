@@ -6,10 +6,10 @@
 			<h3>Campos</h3>
 			<article class="contFild" ng-repeat="field in fieldList">
 				<div class="row">
-					<div class="span2">{{field.label}}</div>
-					<div class="span2">{{field.type}}</div>
-					<div class="span2">{{field.required}}</div>
-					<div class="span2">{{field.readOnly}}</div>
+					<div class="span2">label:{{field.label}}</div>
+					<div class="span2">field:{{field.type}}</div>
+					<div class="span2">required:{{field.required}}</div>
+					<div class="span2">readonly:{{field.readOnly}}</div>
 					<div class="span2">
 						<button type="button" class="btn btn-primary" ng-click="editField(field)" data-toggle="modal" data-target="#addField">Editar</button>
 						<button type="button" class="btn btn-danger" ng-click="removeField(field)">Delete</button>
