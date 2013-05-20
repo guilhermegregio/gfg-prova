@@ -19,6 +19,10 @@ angular.module('provaClientApp', [])
         templateUrl: 'views/form.html',
         controller: 'FormCtrl'
       })
+      .when('/new', {
+        templateUrl: 'views/edit.html',
+        controller: 'NewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

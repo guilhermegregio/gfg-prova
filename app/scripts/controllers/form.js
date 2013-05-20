@@ -10,30 +10,31 @@ angular.module('provaClientApp')
 			fieldType: "text",
 			required: true,
 			readOnly: "",
-			defaultValue: "Nome"
+			placeholder: "Caio Rolando da Rocha",
+			defaultValue: ""
 		},{
 			label: "Email",
 			fieldType: "text",
 			required: true,
 			readOnly: "",
-			defaultValue: "seuemail@show.com.br"
+			placeholder: "seuemail@provedor.xxx",
+			defaultValue: ""
 		},{
 			label: "Telefone",
 			fieldType: "text",
 			required: true,
 			readOnly: "readonly",
-			defaultValue: "999-999-999"
+			placeholder: "999-999-999",
+			defaultValue: ""
 		},{
 			label: "Concorda com os termos",
 			fieldType: "checkbox",
 			required: false,
-			readOnly: "",
 			defaultValue: ""
 		},{
 			label: "Sexo",
 			fieldType: "radio",
 			required: true,
-			readOnly: "",
 			radioValues: {
 				"M":"1",
 				"F":"0"

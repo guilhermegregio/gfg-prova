@@ -79,6 +79,19 @@ input[type="radio"], input[type="checkbox"]{
 		}
 	}
 }
+.viewEdit{
+	tr{
+		th{
+			font-size: 17px;
+		}
+		th, td{ 
+			overflow: hidden;
+			white-space: nowrap;
+			max-width: 50px;
+			text-overflow: ellipsis;
+		}
+	}
+}
 .fieldset{
 	border: 1px solid #ccc;
 	border-radius: 10px;

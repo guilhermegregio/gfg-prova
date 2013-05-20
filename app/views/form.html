@@ -4,9 +4,8 @@
 			<article class="article" ng-model="checked" ng-repeat="field in viewForm.fields">
 				<label for="name">{{field.label}}:</label>
 				
-				
 				<div ng-switch on="field.radioValues == null" >
-					<input ng-switch-when="true" type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="" placeholder="{{field.defaultValue}}"/>
+					<input ng-switch-when="true" type="{{field.fieldType}}" readonly="{{field.readOnly}}" value="{{field.defaultValue}}" placeholder="{{field.placeholder}}"/>
 					
 					<div ng-switch-default>
 						<span ng-repeat="(key,value) in field.radioValues" >{{key}}
