@@ -12,6 +12,16 @@ angular.module('provaClientApp')
 		title: "Form angularjs",
 		fields: "Nome, Email, Telefone",
 		totalRegistros: "500000000"
+	}, {
+		id: "asdf",
+		title: "Form jaca",
+		fields: "Nome, Email, Telefone",
+		totalRegistros: "100"
+	}, {
+		id: "poit",
+		title: "Form azeitona",
+		fields: "Nome, Email, Telefone",
+		totalRegistros: "1"
 	}];
 
 	$scope.removeForm = function (formId) {

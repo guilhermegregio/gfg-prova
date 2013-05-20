@@ -1,5 +1,5 @@
 <div class="main">
-	<div class="hero-unit">
+	<div class="hero-unit edit">
 		<label for="">Título formulário</label><input type="text" placeholder="titulo formulário"> <br>
 
 		<table class="viewEdit table table-bordered">
@@ -14,6 +14,7 @@
 					<td>type:{{field.type}}</td>
 					<td>required:{{field.required}}</td>
 					<td>readonly:{{field.readOnly}}</td>
+					<td>default:{{field.default}}</td>
 					<td>
 						<div class="btPageEdit">
 							<button type="button" class="btn btn-primary" ng-click="editField(field)" data-toggle="modal" data-target="#addField">Editar</button>

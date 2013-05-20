@@ -12,17 +12,14 @@
 		text-overflow: ellipsis;
 	}
 }
+.linksForm{
+	float: right;
+}
 .hero-unit{
-	background: none;
 	padding:15px;
 }
-.hero-unit.internal{
-	background-color: #ccc;
-	h3{
-		color: #000;
-		font-size: 25px;
-		text-shadow: 2px 2px 2px #666;
-	}
+.edit{
+	background: none;	
 }
 .contFild{
 	margin-bottom:15px;
@@ -115,6 +112,8 @@ input[type="radio"], input[type="checkbox"]{
 	}
 	td{
 		vertical-align: middle;
+		color: #000;
+		font-size: 15px;
 	}
 }
 .btPageEdit{

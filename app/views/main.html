@@ -1,15 +1,72 @@
 <div class="main">
-	<ul>
-		<li class="row-fluid hero-unit" ng-repeat="form in formList">
-			<div class="span3"><strong>{{form.title}}</strong></div>
-			<div class="span6">
-				<p>{{form.fields}}</p>
-				<p>{{form.totalRegistros|currency}}</p>
-			</div>
-			<div class="bt-action span3">
-				<a href="#/edit/{{form.id}}" class="btn">Editar</a>
-				<a class="btn btn-primary" ng-click="removeForm(form.id)">Excluir</a>
-			</div>
-		</li>
-	</ul>
+	<h3>Formulários Registrados <button class="btn btn-mini popForm" ng-click="fieldNew = {}; newFieldFlag = true;" data-toggle="modal" data-target="#addField">Criar novo formulário</button></h3>
+	<table class="table table-striped">
+		<tbody>
+			<tr ng-repeat="form in formList">
+				<td>
+					<strong>{{form.title}}</strong>
+				</td>
+				<td>
+					<span>{{form.fields}}</span>
+				</td>
+				<td>
+					<p>
+						Número de Registros: {{form.totalRegistros}}
+					</p>
+				</td>
+				<td>
+					<div class="linksForm">
+						<a href="#/edit/{{form.id}}" class="btn">Editar</a>
+						<a class="btn btn-primary" ng-click="removeForm(form.id)">Excluir</a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- Modal -->
+<div id="addField" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Registrar novo formulário</h3>
+	</div>
+	<div class="modal-body pop">
+		<div>
+			<label>Título do Formulário:</label>
+			<input type="text" ng-model="fieldNew.label" placeholder="Nome" required/>
+		</div>
+
+		<label>Tipo:</label>
+		<select ng-model="fieldNew.type" required>
+			<option value="">Selecione</option>
+			<option value="text">Text</option>
+			<option value="radio">Radio</option>
+			<option value="checkbox">Checkbox</option>
+		</select>
+		
+		<label>Label:</label>
+		<input type="text" ng-model="fieldNew.label" placeholder="Nome" required/>
+
+		<div ng-show="fieldNew.type=='radio'">
+			<label>Radio:</label>
+			<input type="text" ng-model="fieldNew.radios" placeholder="Exemp: Masc:M, Femi:F" />
+		</div>
+
+		<label>Opções:</label>
+		<div class="btn-group" data-toggle="buttons-radio">
+			<button type="button" class="btn" ng-click="fieldNew.required = true; fieldNew.readOnly = false">Required</button>
+			<button type="button" class="btn" ng-click="fieldNew.required = false; fieldNew.readOnly = true">Read Only</button>
+		</div>
+
+		<label>Valor Padrão:</label>
+		<input type="text" ng-model="fieldNew.value" placeholder="Caio Rolando da Rocha" />
+
+		<label>Tamanho Máximo:</label>
+		<input type="number" ng-model="fieldNew.maxLength" placeholder="25" />
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-click="addField()" ng-show="newFieldFlag">Adcionar</button>
+		<button class="btn" data-dismiss="modal">Close</button>
+	</div>
 </div>
