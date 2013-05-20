@@ -8,9 +8,39 @@ Crie um DAO Generico sem framework de persistencia
 Validar os modelos de forma diferente em situações diferentes
 
 
-GET
-Listar os forms
-/templates
+## API REST (RESOURCES):
+
+* [GET /templates](#get-templates)
+
+	Devolve uma lista de formulários
+
+* [GET /templates/:id/data/](#get-templates-id-data)
+
+	Devolve uma lista dos dados preenchidos em um formulário template
+
+* [GET /templates/:id](#get-templates-id)
+
+	Devolve os dados para montar um form com um template
+
+* [POST /templates](#post-templates)
+
+	Adiciona um template 
+
+* [POST /templates/:id/data/](#post-templates-id-data)
+
+	Adiciona um dado num formuláro
+
+* [PUT /templates/:id](#put-templates-id)
+
+	Atualiza um template
+
+* [DELETE /templates/:id](#delete-templates-id)
+
+	Remove um template
+
+<a name="get-templates" />
+### GET /templates
+
 ```
 [{
 	id: "1",
@@ -20,50 +50,9 @@ Listar os forms
 }]
 ```
 
-POST
-Cadastrar um form
-/templates
-```
-{
-	title: "",
-	fields: [{
-		label: "",
-		type: "",
-		required: true|false,
-		readOnly: true|false,
-		value: "",
-		maxLength: 20
+<a name="get-templates-id-data" />
+### GET /templates/:id/data
 
-	}]
-}
-```
-
-PUT
-Editar um form
-/templates/:id
-```
-{
-	id: "",
-	title: "",
-	fields: [{
-		label: "",
-		type: "",
-		required: true|false,
-		readOnly: true|false,
-		value: "",
-		maxLength: 20
-
-	}]
-}
-```
-
-DELETE
-Editar um form
-/templates/:id
-
-GET
-Lista de dados cadastrados para um form
-/templates/:id/data/
 ```
 {
 	fiedls: [{label: "id"}, {label: "nome"}, {label: "telefone"}, {label: "email"}, {label: "apelido"}],
@@ -77,22 +66,9 @@ Lista de dados cadastrados para um form
 }
 ```
 
-POST
-Adicionar dado para um form
-/templates/:id/data/
-```
-{
-	id: "",
-	nome: "",
-	telefone: "",
-	email: "",
-	apelido: ""
-}
-```
+<a name="get-templates-id" />
+### GET /templates/:id
 
-GET
-Montar o form para cadastro
-/templates/:id
 ```
 {
 	title: "",
@@ -106,6 +82,60 @@ Montar o form para cadastro
 	}]
 }
 ```
+
+<a name="post-templates" />
+### POST /templates
+
+```
+{
+	title: "",
+	fields: [{
+		label: "",
+		type: "",
+		required: true|false,
+		readOnly: true|false,
+		value: "",
+		maxLength: 20
+
+	}]
+}
+```
+
+<a name="post-templates-id-data" />
+### POST /templates/:id/data
+
+```
+{
+	id: "",
+	nome: "",
+	telefone: "",
+	email: "",
+	apelido: ""
+}
+```
+
+<a name="put-templates-id" />
+### PUT /templates/:id
+
+```
+{
+	id: "",
+	title: "",
+	fields: [{
+		label: "",
+		type: "",
+		required: true|false,
+		readOnly: true|false,
+		value: "",
+		maxLength: 20
+
+	}]
+}
+```
+
+<a name="delete-templates-id" />
+### DELETE /templates/:id
+
 
 Desenvolva com tdd
 Utilize algum degenciador de dependencia
