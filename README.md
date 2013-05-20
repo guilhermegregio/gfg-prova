@@ -11,46 +11,46 @@ Validar os modelos de forma diferente em situações diferentes
 GET
 Listar os forms
 /templates
-[{
-	id: "1",
-	title: "Titulo do form",
-	fields: [{label: "nome"}, {label: "email"}, {label: "telefone"}]
-	dataCount: "1000"
-}]
+	[{
+		id: "1",
+		title: "Titulo do form",
+		fields: [{label: "nome"}, {label: "email"}, {label: "telefone"}]
+		dataCount: "1000"
+	}]
 
 
 POST
 Cadastrar um form
 /templates
-{
-	title: "",
-	fields: [{
-		label: "",
-		type: "",
-		required: true|false,
-		readOnly: true|false,
-		value: "",
-		maxLength: 20
+	{
+		title: "",
+		fields: [{
+			label: "",
+			type: "",
+			required: true|false,
+			readOnly: true|false,
+			value: "",
+			maxLength: 20
 
-	}]
-}
+		}]
+	}
 
 PUT
 Editar um form
 /templates/:id
-{
-	id: "",
-	title: "",
-	fields: [{
-		label: "",
-		type: "",
-		required: true|false,
-		readOnly: true|false,
-		value: "",
-		maxLength: 20
+	{
+		id: "",
+		title: "",
+		fields: [{
+			label: "",
+			type: "",
+			required: true|false,
+			readOnly: true|false,
+			value: "",
+			maxLength: 20
 
-	}]
-}
+		}]
+	}
 
 DELETE
 Editar um form
@@ -59,43 +59,43 @@ Editar um form
 GET
 Lista de dados cadastrados para um form
 /templates/:id/data/
-{
-	fiedls: [{label: "id"}, {label: "nome"}, {label: "telefone"}, {label: "email"}, {label: "apelido"}],
-	data: [{
-		id: "",
-		nome: "",
-		telefone: "",
-		email: "",
-		apelido: ""
-	}]
-}
+	{
+		fiedls: [{label: "id"}, {label: "nome"}, {label: "telefone"}, {label: "email"}, {label: "apelido"}],
+		data: [{
+			id: "",
+			nome: "",
+			telefone: "",
+			email: "",
+			apelido: ""
+		}]
+	}
 
 
 POST
 Adicionar dado para um form
 /templates/:id/data/
-{
-	id: "",
-	nome: "",
-	telefone: "",
-	email: "",
-	apelido: ""
-}
+	{
+		id: "",
+		nome: "",
+		telefone: "",
+		email: "",
+		apelido: ""
+	}
 
 GET
 Montar o form para cadastro
 /templates/:id
-{
-	title: "",
-	fields: [{
-		label: "",
-		type: "",
-		required: true|false,
-		readOnly: true|false,
-		value: "",
-		maxLength: 20
-	}]
-}
+	{
+		title: "",
+		fields: [{
+			label: "",
+			type: "",
+			required: true|false,
+			readOnly: true|false,
+			value: "",
+			maxLength: 20
+		}]
+	}
 
 Desenvolva com tdd
 Utilize algum degenciador de dependencia
@@ -104,24 +104,24 @@ Coloque o código no github
 Colocar a aplicação na amazon
 
 //form
-{
-	title: "",
-	fields: [
-		{
-			type: "text",
-			label: "nome",
-			redio: "Masculino:1, Feminino:2",
-			required: true,
-			readOnly: false,
-			value: "2",
-			maxLength: "10"
-		}
-	]
-}
+	{
+		title: "",
+		fields: [
+			{
+				type: "text",
+				label: "nome",
+				redio: "Masculino:1, Feminino:2",
+				required: true,
+				readOnly: false,
+				value: "2",
+				maxLength: "10"
+			}
+		]
+	}
 
 //form/{id}/
-{
-	nome: "",
-	idade: "",
-	etc: ""
-}
+	{
+		nome: "",
+		idade: "",
+		etc: ""
+	}
