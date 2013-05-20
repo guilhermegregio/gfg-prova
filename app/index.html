@@ -26,7 +26,17 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <h1>Coletor</h1>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href="#">Coletor</a>
+          <ul class="nav" ng-init="actives=['active', '', '', '']">
+            <li ng-class="actives[0]"><a href="#/" ng-click="actives=['active', '', '', '']">Home</a></li>
+            <li ng-class="actives[1]"><a href="#edit/" ng-click="actives=['', 'active', '', '']">Editar</a></li>
+            <li ng-class="actives[2]"><a href="#data/" ng-click="actives=['', '', 'active', '']">Data</a></li>
+            <li ng-class="actives[3]"><a href="#form/" ng-click="actives=['', '', '', 'active']">Form</a></li>
+          </ul>
+        </div>
+      </div>
       <div ng-view></div>
     </div>
     <script src="components/angular/angular.js"></script>
