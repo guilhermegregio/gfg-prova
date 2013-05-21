@@ -1,27 +1,38 @@
 prova-client
 ============
 
-1. Introdução
-2. Requisitos para o desenvolvimento
-3. Validação
-4. API REST (RESOURCES)
-5. Utilize um banco de dados noSQL
-6. Compilar o client para consumir sua aplicação
+1. [Introdução](#introducao)
+2. [Requisitos para o desenvolvimento](#requisitos)
+3. [Validação](#validacao)
+4. [API REST (RESOURCES)](#rest)
+5. [Utilize um banco de dados noSQL](#nosql)
+6. [Compilar o client para consumir sua aplicação](#build)
 
-
+<a name="#introducao" />
 ### Desenvolva uma aplicação REST (json)
 Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O Formulário deve conter um título e os campos para simplificar utilizaremos somente os inputs(text, radio, checkbox, numero, etc) e podem ser validados com os seguintes atributos: requerido, somente leitura, quantidade de caracteres máxima, o campo pode ter um valor padrão para vir preenchido e placehold. Para consumir sua aplicação utilize o client que é fornecido neste repositório.
 
+<a name="#requisitos" />
 ### Requisitos para o desenvolvimento
 
 * Desenvolva com tdd
-* Utilize algum gerenciador de dependencia
+* Utilize um gerenciador de dependencia
 * Automatize o build
 * Coloque o código no github
-* Colocar a aplicação na amazon
+* Coloque a aplicação na amazon
 
-### Validar os modelos de forma diferente em situações diferentes
+<a name="#validacao" />
+### Validações
 
+#### Formularios
+* Um formulário deve conter titulo e ao menos um field
+* Um field deve ter obrigatoriamente label e type
+* Quando o type do field for radio obrigatoriamente deve ser preenchido o atributo radio
+
+#### Cadastros
+* O cadastro gerado por um formulário deve ser validado de acordo com suas configurações, um field pode ter as seguintes configurações: requerido, tamanho máximo, date, datetime, email, number, etc...
+
+<a name="#rest" />
 ### API REST (RESOURCES)
 
 #### Recursos para Template de Formulários
@@ -247,17 +258,6 @@ _Adiciona um formulário_
 
 		<tr>
 			<td>
-				field.placeholder<br/>
-				<i>opicional</i>
-			</td>
-			<td>
-				<i>string</i><br/>
-				<b>Ex value:</b> Digite o nome:
-			</td>
-		</tr>
-
-		<tr>
-			<td>
 				field.radio<br/>
 				<i>opicional</i>
 			</td>
@@ -458,6 +458,7 @@ _Adiciona um formulário_
 	}
 	```
 
+<a name="nosql" />
 ### Utilize um banco de dados noSQL
 Utilize um banco de dados noSQL baseado em documentos e grave tudo num unico documento 
 
@@ -507,6 +508,7 @@ Exemplo de documento:
 }
 ```
 
+<a name="build" />
 ### Compilar o client para utilizar em sua aplicação
 
 * Pre-requisitos
@@ -518,7 +520,8 @@ Exemplo de documento:
 		Install bower
 
 		Install grunt
-
+		
+		npm install -g yo grunt-cli bower
 
 * Build
 
