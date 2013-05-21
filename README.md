@@ -521,18 +521,7 @@ _Adiciona um formulário_
 
 		Nodejs
 
-		Install bower
-
-
-		Install node e npm
-
-		Install compass
-
-		Install bower
-
-		Install grunt
-		
-		npm install -g yo grunt-cli bower
+			npm install -g grunt-cli bower
 
 * Build
 
