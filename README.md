@@ -10,7 +10,7 @@ prova-client
 
 <a name="#introducao" />
 ### Desenvolva uma aplicação REST (json)
-Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O Formulário deve conter um título e os campos para simplificar utilizaremos somente os inputs(text, radio, checkbox, numero, etc) e podem ser validados com os seguintes atributos: requerido, somente leitura, quantidade de caracteres máxima, o campo pode ter um valor padrão para vir preenchido e placehold. Para consumir sua aplicação utilize o client que é fornecido neste repositório.
+Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O Formulário deve conter um título e os campos, para simplificar utilizaremos somente os input's. Os campos podem ser validados com os seguintes atributos: requerido, somente leitura, quantidade de caracteres máxima, o campo pode ter um valor e/ou placeholder. Para consumir sua aplicação utilize o client que é fornecido neste repositório. Deve ser utilizado um banco de dados noSQL baseado em documentos.
 
 <a name="#requisitos" />
 ### Requisitos para o desenvolvimento
