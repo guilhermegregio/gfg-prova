@@ -16,7 +16,7 @@ Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O For
 ### Requisitos para o desenvolvimento
 
 * Desenvolva com tdd
-* Utilize um gerenciador de dependencia
+* Utilize um gerenciador de dependência
 * Automatize o build
 * Coloque o código no github
 * Coloque a aplicação na amazon
@@ -24,17 +24,17 @@ Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O For
 <a name="#validacao" />
 ### Validações
 
-#### Formularios
-* Um formulário deve conter titulo e ao menos um field
-* Um field deve ter obrigatoriamente label e type
-* Quando o type do field for radio obrigatoriamente deve ser preenchido o atributo radio
+#### Formulários
+* Um formulário deve conter titulo e ao menos um campo
+* Um cmapo deve ter obrigatoriamente label e tipo
+* Quando o tipo do campo for radio obrigatoriamente deve ser preenchido o atributo radio
 
 #### Cadastros
-* O cadastro gerado por um formulário deve ser validado de acordo com suas configurações, um field pode ter as seguintes configurações: requerido, tamanho máximo, date, datetime, email, number, etc...
+* O cadastro gerado por um formulário deve ser validado de acordo com suas configurações, um campo pode ter as seguintes configurações: requerido, tamanho máximo, date, datetime, email, number, etc...
 
 <a name="nosql" />
 ### Utilize um banco de dados noSQL
-Utilize um banco de dados noSQL baseado em documentos e grave tudo num unico documento 
+Utilize um banco de dados noSQL baseado em documentos e grave tudo num único documento 
 
 Exemplo de documento:
 ```
@@ -44,7 +44,7 @@ Exemplo de documento:
 		label: "Nome",
 		type: "text",
 		required: true,
-		placehold: "Nome:"
+		placeholder: "Nome:"
 	},{
 		label: "Sexo",
 		type: "radio",
@@ -61,7 +61,7 @@ Exemplo de documento:
 		label: "E-mail",
 		type: "email",
 		required: false,
-		placehold: "Digite um e-mail"
+		placeholder: "Digite um e-mail"
 	},{
 		label: "idade",
 		type: "number",
@@ -89,8 +89,8 @@ Exemplo de documento:
 <table width="100%">
 	<thead>
 		<tr>
-			<th width="40%">Resource</th>
-			<th width="60%">Description</th>
+			<th width="40%">Recurso</th>
+			<th width="60%">Descrição</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -127,8 +127,8 @@ Exemplo de documento:
 <table width="100%">
 	<thead>
 		<tr>
-			<th width="40%">Resource</th>
-			<th width="60%">Description</th>
+			<th width="40%">Recursos</th>
+			<th width="60%">Descrição</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -139,7 +139,7 @@ Exemplo de documento:
 
 		<tr>
 			<td><a href="#post-templates-id-data">POST /templates/:id/data/</a></td>
-			<td><i>Adiciona um dado num formuláro</i></td>
+			<td><i>Adiciona um dado num formulário</i></td>
 		</tr>
 	</tbody>
 </table>
@@ -195,13 +195,13 @@ _Devolve um formulário com todos os campos_
 
 _Adiciona um formulário_
 
-##### Parametros:
+##### Parâmetros:
 
 <table width="100%">
 	<thead>
 		<tr>
-			<th width="40%">Attribute</th>
-			<th width="60%">Description</th>
+			<th width="40%">Atributos</th>
+			<th width="60%">Descrição</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -313,7 +313,7 @@ _Adiciona um formulário_
 			</td>
 			<td>
 				<i>array</i><br/>
-				requiredo somente se o type for radio<br/>
+				requerido somente se o type for radio<br/>
 				<b>Ex value:</b> <pre>[
     {
         "label": "M",
