@@ -519,9 +519,9 @@ _Adiciona um formulário_
 
 * Pre-requisitos
 
-		Nodejs
+	Nodejs
 
-			npm install -g grunt-cli bower
+		npm install -g grunt-cli bower
 
 * Build
 
