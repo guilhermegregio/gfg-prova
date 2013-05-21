@@ -4,8 +4,8 @@ prova-client
 1. [Introdução](#introducao)
 2. [Requisitos para o desenvolvimento](#requisitos)
 3. [Validação](#validacao)
-4. [API REST (RESOURCES)](#rest)
-5. [Utilize um banco de dados noSQL](#nosql)
+4. [Utilize um banco de dados noSQL](#nosql)
+5. [API REST (RESOURCES)](#rest)
 6. [Compilar o client para consumir sua aplicação](#build)
 
 <a name="#introducao" />
@@ -31,6 +31,56 @@ Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O For
 
 #### Cadastros
 * O cadastro gerado por um formulário deve ser validado de acordo com suas configurações, um field pode ter as seguintes configurações: requerido, tamanho máximo, date, datetime, email, number, etc...
+
+<a name="nosql" />
+### Utilize um banco de dados noSQL
+Utilize um banco de dados noSQL baseado em documentos e grave tudo num unico documento 
+
+Exemplo de documento:
+```
+{
+	title: "Titulo do formulário",
+	fields: [{
+		label: "Nome",
+		type: "text",
+		required: true,
+		placehold: "Nome:"
+	},{
+		label: "Sexo",
+		type: "radio",
+		required: true,
+		radios: [{
+			"label": "M",
+			"value": "masculino"
+		},{
+			"label": "F",
+			"value": "feminino"
+		}],
+		value: 1
+	},{
+		label: "E-mail",
+		type: "email",
+		required: false,
+		placehold: "Digite um e-mail"
+	},{
+		label: "idade",
+		type: "number",
+		required: false
+	}],
+	data: [
+		{
+			nome: "Guilherme",
+			sexo: "masculino",
+			email: "guilherme@email.com",
+			idade: 27
+		},
+		{
+			nome: "Rafael",
+			sexo: "masculino"
+		}
+	]
+}
+```
 
 <a name="#rest" />
 ### API REST (RESOURCES)
@@ -457,57 +507,6 @@ _Adiciona um formulário_
 		apelido: ""
 	}
 	```
-
-<a name="nosql" />
-### Utilize um banco de dados noSQL
-Utilize um banco de dados noSQL baseado em documentos e grave tudo num unico documento 
-
-Exemplo de documento:
-```
-{
-	title: "Titulo do formulário",
-	fields: [{
-		label: "Nome",
-		type: "text",
-		required: true,
-		placehold: "Nome:"
-	},{
-		label: "Sexo",
-		type: "radio",
-		required: true,
-		radios: [{
-			"label": "M",
-			"value": "masculino"
-		},{
-			"label": "F",
-			"value": "feminino"
-		}],
-		value: 1
-	},{
-		label: "E-mail",
-		type: "email",
-		required: false,
-		placehold: "Digite um e-mail"
-	},{
-		label: "idade",
-		type: "number",
-		required: false
-	}],
-	data: [
-		{
-			nome: "Guilherme",
-			sexo: "masculino",
-			email: "guilherme@email.com",
-			idade: 27
-		},
-		{
-			nome: "Rafael",
-			sexo: "masculino"
-		}
-	]
-}
-```
-
 <a name="build" />
 ### Compilar o client para utilizar em sua aplicação
 
