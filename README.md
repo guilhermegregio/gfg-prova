@@ -8,11 +8,11 @@ prova-client
 5. [API REST (RESOURCES)](#rest)
 6. [Compilar o client para consumir sua aplicação](#build)
 
-<a name="#introducao" />
+<a name="introducao" />
 ### Desenvolva uma aplicação REST (json)
 Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O Formulário deve conter um título e os campos, para simplificar utilizaremos somente os input's. Os campos podem ser validados com os seguintes atributos: requerido, somente leitura, quantidade de caracteres máxima, o campo pode ter um valor e/ou placeholder. Para consumir sua aplicação utilize o client que é fornecido neste repositório. Deve ser utilizado um banco de dados noSQL baseado em documentos.
 
-<a name="#requisitos" />
+<a name="requisitos" />
 ### Requisitos para o desenvolvimento
 
 * Desenvolva com tdd
@@ -21,7 +21,7 @@ Desenvolva uma API REST de geração de formulários, e cadastro do mesmo. O For
 * Coloque o código no github
 * Coloque a aplicação na amazon
 
-<a name="#validacao" />
+<a name="validacao" />
 ### Validações
 
 #### Formulários
@@ -82,7 +82,7 @@ Exemplo de documento:
 }
 ```
 
-<a name="#rest" />
+<a name="rest" />
 ### API REST (RESOURCES)
 
 #### Recursos para Template de Formulários
@@ -511,6 +511,11 @@ _Adiciona um formulário_
 ### Compilar o client para utilizar em sua aplicação
 
 * Pre-requisitos
+
+		Nodejs
+
+		Install bower
+
 
 		Install node e npm
 
