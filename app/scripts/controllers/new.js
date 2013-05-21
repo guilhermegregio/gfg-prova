@@ -5,22 +5,22 @@ angular.module('provaClientApp')
 
 	$scope.fieldList = [];
 	$scope.fieldNew = {};
-	$scope.newFieldFlag;
+	$scope.newFieldFlag = false;
 	$scope.dataForm = {
 		fields: $scope.fieldList
-	}
+	};
 
 	$scope.createForm = function(){
 		console.log($scope.dataForm.fields);
-	}
+	};
 
 	var fieldError = function (field) {
 		var error = 0;
 
-		error += field.type === undefined || field.type === "" ? 1 : 0;
-		error += field.label === undefined || field.label === "" ? 1 : 0;
+		error += field.type === undefined || field.type === '' ? 1 : 0;
+		error += field.label === undefined || field.label === '' ? 1 : 0;
 
-		if (error == 0) {
+		if (error === 0) {
 			return false;
 		}
 
@@ -41,7 +41,7 @@ angular.module('provaClientApp')
 
 	$scope.editField = function (form) {
 		$scope.fieldNew = form;
-		$scope.newFieldFlag = "false";
+		$scope.newFieldFlag = false;
 	};
 
 	$scope.removeField = function (form) {
@@ -58,11 +58,11 @@ angular.module('provaClientApp')
 			data: dataForm
 		}).
 		success(function () {
-			console.log("SUCCESS");
+			console.log('SUCCESS');
 		}).
 		error(function () {
-			console.log("ERRO");
+			console.log('ERRO');
 		});
-	}
+	};
 
   });
