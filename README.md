@@ -14,7 +14,7 @@ Desenvolva uma API REST de geração de formulários e respostas.
 Os formulários(templates) são ferramentas úteis que ajudam a planejar eventos, enviar pesquisas, aplicar testes em alunos ou colher informações de modo direto e fácil.
 
 O Formulário deve conter um título e os seus campos(perguntas). Pra simplificar utilizaremos somente os input's. 
-Os campos podem ser validados com os seguintes atributos: requerido, somente leitura, quantidade de caracteres máxima, o campo pode ter um valor default ou um placeholder. 
+Os campos podem ser validados com os seguintes atributos: requerido, somente leitura, quantidade de caracteres máxima, valor(o campo pode ter um valor default) e placeholder(caso não tenha valor default). Sendo estes não obrigatório o preenchimento 
 
 Para consumir sua aplicação utilize o client que é fornecido neste repositório.
 
@@ -519,9 +519,20 @@ _Adiciona um formulário_
 
 * Pre-requisitos
 
-	Nodejs
+		Nodejs
 
-		npm install -g grunt-cli bower
+		Install bower
+
+
+		Install node e npm
+
+		Install compass
+
+		Install bower
+
+		Install grunt
+		
+		npm install -g yo grunt-cli bower
 
 * Build
 
