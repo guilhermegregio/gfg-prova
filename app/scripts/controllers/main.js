@@ -29,7 +29,7 @@ angular.module('provaClientApp')
 		$scope.removeForm = function () {
 			$http({
 				method: 'DELETE',
-				url: '/someUrl'
+				url: '@@host/someUrl'
 			})
 			.success(function () {
 				console.log('SUCCESS');

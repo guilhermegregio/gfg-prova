@@ -11,7 +11,8 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    host: 'http://localhost:8080'
   };
 
   try {
@@ -154,9 +155,9 @@ module.exports = function (grunt) {
       compile: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
+          cwd: '<%= yeoman.dist %>/scripts',
           src: '**/*.js',
-          dest: '.tmp/scripts'
+          dest: 'dist/scripts'
         }],
         options: { // this options only affect the compile task
           console: false,
@@ -268,6 +269,16 @@ module.exports = function (grunt) {
           src: '**/*'
         }]
       }
+    },
+    replace: {
+      dist: {
+        src: ['<%= yeoman.dist %>/**/*.js'],
+        overwrite: true,
+        replacements: [{
+          from: '@@host',
+          to: '<%= yeoman.host %>/coletor'
+        }]
+      }
     }
   });
 
@@ -304,7 +315,6 @@ module.exports = function (grunt) {
     'jshint',
     'compass:dist',
     'useminPrepare',
-    'groundskeeper',
     'concat',
     'imagemin',
     'cssmin',
@@ -312,6 +322,7 @@ module.exports = function (grunt) {
     'cdnify',
     'ngmin',
     'uglify',
+    'replace',
     'rev',
     'usemin',
     'clean:server'

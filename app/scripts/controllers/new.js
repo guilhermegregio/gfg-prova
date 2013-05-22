@@ -54,7 +54,7 @@ angular.module('provaClientApp')
 		$scope.newForm = function (dataForm) {
 			$http({
 				method: 'DELETE',
-				url: '/someUrl',
+				url: '@@host/someUrl',
 				data: dataForm
 			})
 			.success(function () {
