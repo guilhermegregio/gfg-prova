@@ -17,6 +17,6 @@ describe('Controller: FormCtrl', function () {
   }));
 
   it('should attach a list of viewForm to the scope', function () {
-    expect(scope.viewForm === Object);
+    expect(scope.viewForm.fields.length).toBe(5);
   });
 });

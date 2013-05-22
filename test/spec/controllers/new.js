@@ -17,6 +17,6 @@ describe('Controller: NewCtrl', function () {
   }));
 
   it('should attach a list of dataForm to the scope', function () {
-    expect(scope.dataForm.length > 0);
+    expect(scope.dataForm.fields.length).toBe(0);
   });
 });

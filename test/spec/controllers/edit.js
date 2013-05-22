@@ -17,6 +17,6 @@ describe('Controller: EditCtrl', function () {
   }));
 
   it('should attach a list of fieldList to the scope', function () {
-    expect(scope.fieldList.length > 0);
+    expect(scope.fieldList.length).toBe(0);
   });
 });

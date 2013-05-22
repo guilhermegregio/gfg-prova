@@ -17,6 +17,6 @@ describe('Controller: MainCtrl', function () {
   }));
 
   it('should attach a list of formList to the scope', function () {
-    expect(scope.formList === Object);
+    expect(scope.formList.length).toBe(4);
   });
 });
