@@ -6,13 +6,7 @@ angular.module('provaClientApp')
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
 		$scope.newFieldFlag = false;
-		$scope.dataForm = {
-			fields: $scope.fieldList
-		};
-
-		$scope.createForm = function(){
-			console.log($scope.dataForm.fields);
-		};
+		$scope.dataForm = { fields: $scope.fieldList };
 
 		var fieldError = function (field) {
 			var error = 0;
@@ -44,24 +38,24 @@ angular.module('provaClientApp')
 			$scope.newFieldFlag = false;
 		};
 
-		$scope.removeField = function (form) {
-			function removeItem(element) {
-				return element.label !== form.label;
-			}
-			$scope.fieldList = $scope.fieldList.filter(removeItem);
+		$scope.removeField = function (field) {
+			$scope.fieldList.splice($scope.fieldList.indexOf(field), 1);
 		};
 
-		$scope.newForm = function (dataForm) {
-			$http({
-				method: 'DELETE',
-				url: '@@host/someUrl',
-				data: dataForm
-			})
-			.success(function () {
-				console.log('SUCCESS');
-			})
-			.error(function () {
-				console.log('ERRO');
-			});
+		$scope.createForm = function() {
+			console.log($scope.dataForm);
+			if ($scope.dataForm.title && $scope.dataForm.fields.length !== 0) {
+				$http({
+					method: 'POST',
+					url: '@@host/templates',
+					data: $scope.dataForm
+				})
+				.success(function () {
+					console.log('$scope.dataForm');
+				})
+				.error(function () {
+					console.log('$scope.dataForm');
+				});
+			}
 		};
 	});

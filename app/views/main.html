@@ -7,11 +7,11 @@
 					<strong>{{form.title}}</strong>
 				</td>
 				<td>
-					<span>{{form.fields}}</span>
+					<span ng-repeat="label in form.fields">{{label.label}},</span>
 				</td>
 				<td>
 					<p>
-						Número de Registros: {{form.totalRegistros}}
+						Número de Registros: {{form.dataCount}}
 					</p>
 				</td>
 				<td>

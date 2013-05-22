@@ -4,32 +4,34 @@ angular.module('provaClientApp')
 	.controller('MainCtrl', function ($scope, $http) {
 		$scope.formList = [
 			{
-				id: 'xpto',
-				title: 'Form bacana',
-				fields: 'Nome, Email, Telefone',
-				totalRegistros: '1000'
-			}, {
-				id: 'poit',
-				title: 'Form angularjs',
-				fields: 'Nome, Email, Telefone',
-				totalRegistros: '500000000'
-			}, {
-				id: 'asdf',
-				title: 'Form jaca',
-				fields: 'Nome, Email, Telefone',
-				totalRegistros: '100'
-			}, {
-				id: 'poit',
-				title: 'Form azeitona',
-				fields: 'Nome, Email, Telefone',
-				totalRegistros: '1'
+				id: '1',
+				title: 'Título do form',
+				fields: [
+					{label: 'Nome'},
+					{label: 'Email'},
+					{label: 'Telefone'}
+				],
+				dataCount: '1000'
 			}
 		];
+
+		$scope.getTemplateForm = function () {
+			$http({
+				method: 'GET',
+				url: '@@host/templates'
+			})
+			.success(function () {
+				console.log('SUCCESS');
+			})
+			.error(function () {
+				console.log('ERRO');
+			});
+		};
 
 		$scope.removeForm = function () {
 			$http({
 				method: 'DELETE',
-				url: '@@host/someUrl'
+				url: '@@host/templates/:id'
 			})
 			.success(function () {
 				console.log('SUCCESS');
