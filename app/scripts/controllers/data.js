@@ -18,7 +18,4 @@ angular.module('provaClientApp')
 				idade: 23
 			}]
 		}
-
-
-
 	});

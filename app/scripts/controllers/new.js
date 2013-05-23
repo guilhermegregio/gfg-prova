@@ -46,18 +46,7 @@ angular.module('provaClientApp')
 
 		$scope.createForm = function() {
 			if ($scope.dataForm.title && $scope.dataForm.fields.length !== 0) {
-				$http({
-					url: 'http://172.17.0.110:8080/teste/templates',
-					method: "POST",
-					data: $scope.dataForm,
-					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-				}).success(function (data, status, headers, config) {
-					$scope.dataForm = dataForm; // assign  $scope.persons here as promise is resolved here
-				}).error(function (data, status, headers, config) {
-					$scope.status = status;
-				});
-				var json = $scope.dataForm;
-				console.log(angular.toJson(json));
+				console.log($scope.dataForm)
 			}
 		};
 	});
