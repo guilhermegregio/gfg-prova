@@ -38,7 +38,7 @@ module.exports = function (grunt) {
 					middleware: function (connect) {
 						return [
 							lrSnippet,
-							mountFolder(connect, '.tmp'),
+							mountFolder(connect, yeomanConfig.tmp),
 							mountFolder(connect, yeomanConfig.app)
 						];
 					}
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
 				options: {
 					middleware: function (connect) {
 						return [
-							mountFolder(connect, '.tmp'),
+							mountFolder(connect, yeomanConfig.tmp),
 							mountFolder(connect, 'test')
 						];
 					}
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 			},
 			all: [
 				'Gruntfile.js',
-				'<%= yeoman.tmp %>/scripts/{,*/}*.js'
+				'<%= yeoman.app %>/scripts/{,*/}*.js'
 			]
 		},
 		replace: {
@@ -236,9 +236,9 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', function(target) {
 		if (target === 'continuous') {
 			return grunt.task.run([
+				'jshint',
 				'clean:predist',
 				'copy',
-				'jshint',
 				'replace',
 				'compass',
 				'connect:test',
@@ -247,9 +247,9 @@ module.exports = function (grunt) {
 		}
 
 		grunt.task.run([
+			'jshint',
 			'clean:predist',
 			'copy',
-			'jshint',
 			'replace',
 			'compass',
 			'connect:test',
@@ -258,10 +258,10 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('build', [
+		'jshint',
 		'test',
 		'clean',
 		'copy',
-		'jshint',
 		'replace',
 		'compass',
 		'useminPrepare',
@@ -284,8 +284,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('buildWithoutTest', [
 		'clean',
-		'copy',
 		'jshint',
+		'copy',
 		'replace',
 		'compass',
 		'useminPrepare',
@@ -308,8 +308,8 @@ module.exports = function (grunt) {
 
 		grunt.task.run([
 			'clean:predist',
-			'copy',
 			'jshint',
+			'copy',
 			'replace',
 			'compass',
 			'livereload-start',
