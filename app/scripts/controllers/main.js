@@ -1,43 +1,19 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('MainCtrl', function ($scope, $http) {
-		$scope.formList = [
-			{
-				id: '1',
-				title: 'Título do form',
-				fields: [
-					{label: 'Nome'},
-					{label: 'Email'},
-					{label: 'Telefone'}
-				],
-				dataCount: '1000'
-			}
-		];
+	.controller('MainCtrl', function ($scope, $http, templateService) {
 
-		$scope.getTemplateForm = function () {
-			$http({
-				method: 'GET',
-				url: '@@host/templates'
-			})
-			.success(function () {
-				console.log('SUCCESS');
-			})
-			.error(function () {
-				console.log('ERRO');
-			});
-		};
+		templateService.query(function(templates) {
+			$scope.formList = templates;
+		});
+		// templateService.get({templateId: 1});
+		// 
+		// templateService.save({title: 'postado'});
+		// templateService.update({templateId: 1}, {title: 'outra coisa'});
 
-		$scope.removeForm = function () {
-			$http({
-				method: 'DELETE',
-				url: '@@host/templates/:id'
-			})
-			.success(function () {
-				console.log('SUCCESS');
-			})
-			.error(function () {
-				console.log('ERRO');
+		$scope.removeForm = function (id) {
+			templateService.delete({templateId: id}, function () {
+				$scope.formList.splice($scope.formList.indexOf({id: id}), 1);
 			});
 		};
 	});
