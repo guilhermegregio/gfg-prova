@@ -3,6 +3,8 @@
 angular.module('provaClientApp')
 	.controller('MainCtrl', function ($scope, $http, templateService) {
 
+		$scope.formList = [];
+
 		templateService.query(function(templates) {
 			$scope.formList = templates;
 		});
