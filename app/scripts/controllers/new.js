@@ -6,7 +6,9 @@ angular.module('provaClientApp')
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
 		$scope.newFieldFlag = false;
-		$scope.dataForm = { fields: $scope.fieldList };
+		$scope.dataForm = { 
+			fields: $scope.fieldList 
+		};
 
 		var fieldError = function (field) {
 			var error = 0;
@@ -43,18 +45,28 @@ angular.module('provaClientApp')
 		};
 
 		$scope.createForm = function() {
-			console.log($scope.dataForm);
 			if ($scope.dataForm.title && $scope.dataForm.fields.length !== 0) {
-				$http({
-					method: 'POST',
-					url: '@@host/templates',
-					data: $scope.dataForm
-				})
-				.success(function () {
-					console.log('$scope.dataForm');
-				})
-				.error(function () {
-					console.log('$scope.dataForm');
+				// $http.post('http://172.17.0.110:8080/teste/templates', $scope.dataForm)
+				// .success(function () {
+				// 	console.log('$scope.dataForm');
+				// })
+				// .error(function () {
+				// 	console.log('$scope.dataForm');
+				// });
+				var json = $scope.dataForm;
+				console.log(angular.toJson(json));
+
+				$.ajax({
+					url: 'http://172.17.0.110:8080/teste/templates',
+					type: 'POST',
+					dataType: 'json',
+					data: angular.toJson(json),
+					success: function() {
+						console.log('$scope.dataForm');
+					},
+					error: function() {
+						console.log('$scope.dataForm');
+					}
 				});
 			}
 		};
