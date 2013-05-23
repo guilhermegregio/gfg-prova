@@ -2,7 +2,23 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('EditCtrl', function ($scope, $http) {
+	.controller('EditCtrl', function ($scope, $http, $routeParams) {
+
+	console.log($routeParams);
+
+	// $scope.form = {};
+	// templateService.get({templateId: $routeParams.templateId}, function(form) {
+	// 	$scope.form = form;
+	// });
+
+	$scope.form = {
+		title: 'Formulário',
+		fields: [{
+			label: 'nome',
+			type: 'text',
+			required: true
+		}]
+	};
 
 	$scope.fieldList = [];
 	$scope.fieldNew = {};

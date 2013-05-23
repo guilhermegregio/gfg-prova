@@ -7,7 +7,7 @@ angular.module('provaClientApp', ['ngResource'])
 		templateUrl: 'views/main.html',
 		controller: 'MainCtrl'
 	})
-		.when('/edit', {
+		.when('/edit/:templateEdit', {
 		templateUrl: 'views/edit.html',
 		controller: 'EditCtrl'
 	})

@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('NewCtrl', function ($scope) {
+	.controller('NewCtrl', function ($scope, templateService) {
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
 		$scope.newFieldFlag = false;
@@ -46,7 +46,8 @@ angular.module('provaClientApp')
 
 		$scope.createForm = function() {
 			if ($scope.dataForm.title && $scope.dataForm.fields.length !== 0) {
-				console.log($scope.dataForm)
+				console.log($scope.dataForm);
+				templateService.save($scope.dataForm);
 			}
 		};
 	});
