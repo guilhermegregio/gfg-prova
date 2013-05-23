@@ -2,12 +2,12 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('NewCtrl', function ($scope, $http) {
+	.controller('NewCtrl', function ($scope) {
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
 		$scope.newFieldFlag = false;
-		$scope.dataForm = { 
-			fields: $scope.fieldList 
+		$scope.dataForm = {
+			fields: $scope.fieldList
 		};
 
 		var fieldError = function (field) {
