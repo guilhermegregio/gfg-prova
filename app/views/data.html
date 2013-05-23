@@ -1,12 +1,12 @@
 <table class="view-adds table table-bordered">
 	<thead>
 		<tr>
-			<th ng-repeat="nome in nomes">{{nome}}</th>
+			<th ng-repeat="label in dataForm.fields">{{label.label}}</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="dado in dados">
-			<td ng-repeat="campo in nomes">{{dado[campo]}}</td>
+		<tr ng-repeat="dado in dataForm.data">
+			<td ng-repeat="(key,val) in dataForm.fields">{{dado[val]}}</td>
 		</tr>
 	</tbody>
 </table>

@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('EditCtrl', function ($scope) {
+	.controller('EditCtrl', function ($scope, $http) {
 
 	$scope.fieldList = [];
 	$scope.fieldNew = {};

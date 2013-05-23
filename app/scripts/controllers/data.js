@@ -2,25 +2,23 @@
 
 angular.module('provaClientApp')
 	.controller('DataCtrl', function ($scope) {
-		$scope.dados = [
+		$scope.dataForm = {
+			fields: [{label: "id"}, {label: "nome"}, {label: "telefone"}, {label: "email"}, {label: "apelido"}],
+			data: [{
+				id: "519bd0fde4b0a99234c5c6f2",
+				nome: "nome1",
+				telefone: "99999-999",
+				email: "dlbca@gmail.com",
+				apelido: "apelido1"
+			},
 			{
-				id: 'xpto',
-				nome: 'Guilherme',
-				telefone: '999999999'
-			},{
-				id: 'gamgstyle',
-				nome: 'Gamg',
-				telefone: '666666666'
-			},{
-				id: 'editar',
-				nome: 'O Formulario',
-				telefone: '666666666',
-				email: 'email@gmail.com'
-			},{
-				id: 'editar',
-				apelido: 'fififi',
-				telefone: '666666666',
-			}
-		];
-		$scope.nomes = ['id', 'nome', 'telefone', 'email', 'apelido'];
+				id: "519bd0fde4b0a99234c5c53f",
+				nome: "nome2",
+				apelido: "apelido2",
+				idade: 23
+			}]
+		}
+
+
+
 	});
