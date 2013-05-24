@@ -4,24 +4,18 @@
 angular.module('provaClientApp')
 	.controller('EditCtrl', function ($scope, $http, $routeParams, templateService) {
 
-	$scope.form = {};
-	templateService.query({templateId: $routeParams.templateEdit}, function(form) {
-		$scope.form = form;
-		console.log($scope.form);
-	});
-
-	// $scope.form = {
-	// 	title: 'Formulário',
-	// 	fields: [{
-	// 		label: 'nome',
-	// 		type: 'text',
-	// 		required: true
-	// 	}]
-	// };
-
 	$scope.fieldList = [];
 	$scope.fieldNew = {};
 	$scope.newFieldFlag = false;
+	$scope.form = {};
+	templateService.get({templateId: $routeParams.templateEdit}, function(form) {
+		$scope.form = form;
+		console.log($scope.form.fields);
+		$scope.form.fields.forEach(function (data) {
+			$scope.fieldList.push(data);
+		});
+	});
+
 
 	var fieldError = function (field) {
 		var error = 0;
@@ -59,5 +53,4 @@ angular.module('provaClientApp')
 		}
 		$scope.fieldList = $scope.fieldList.filter(removeItem);
 	};
-
 });

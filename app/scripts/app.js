@@ -15,7 +15,7 @@ angular.module('provaClientApp', ['ngResource'])
 		templateUrl: 'views/data.html',
 		controller: 'DataCtrl'
 	})
-		.when('/form', {
+		.when('/form/:templateEdit', {
 		templateUrl: 'views/form.html',
 		controller: 'FormCtrl'
 	})

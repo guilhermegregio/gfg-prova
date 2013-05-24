@@ -1,47 +1,21 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('FormCtrl', function ($scope) {
+	.controller('FormCtrl', function ($scope, $routeParams, templateService) {
 
-	$scope.viewForm = {
-		title: 'Form bacana',
-		fields: [
-			{
-				label: 'Nome',
-				fieldType: 'text',
-				required: true,
-				readOnly: '',
-				placeholder: 'Caio Rolando da Rocha',
-				defaultValue: ''
-			},{
-				label: 'Email',
-				fieldType: 'text',
-				required: true,
-				readOnly: '',
-				placeholder: 'seuemail@provedor.xxx',
-				defaultValue: ''
-			},{
-				label: 'Telefone',
-				fieldType: 'text',
-				required: true,
-				readOnly: 'readonly',
-				placeholder: '999-999-999',
-				defaultValue: ''
-			},{
-				label: 'Concorda com os termos',
-				fieldType: 'checkbox',
-				required: false,
-				defaultValue: ''
-			},{
-				label: 'Sexo',
-				fieldType: 'radio',
-				required: true,
-				radioValues: {
-					'M':'1',
-					'F':'0'
-				},
-				defaultValue: ''
-			}
-		]
-	};
-});
+		$scope.data = {};
+		$scope.viewForm = {};
+
+		templateService.get({templateId: $routeParams.templateEdit}, function(viewForm) {
+			$scope.viewForm = viewForm;
+		});
+
+		$scope.cadastrar = function () {
+			var postData = {};
+			$scope.viewForm.fields.forEach(function (data) {
+				postData[data.label] = data.value;
+			});
+
+			console.log(postData);
+		};
+	});

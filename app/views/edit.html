@@ -25,7 +25,11 @@
 					<td>{{field.type}}</td>
 					<td>{{field.required}}</td>
 					<td>{{field.readOnly}}</td>
-					<td>{{field.radios}}</td>
+					<td>
+						<ul>
+							<li ng-repeat="radio in field.radios">{{radio.label}} : {{radio.value}}</li>
+						</ul>
+					</td>
 					<td>{{field.maxLength}}</td>
 					<td>{{field.placeholder}}</td>
 					<td>{{field.value}}</td>
