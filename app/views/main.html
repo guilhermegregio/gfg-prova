@@ -11,14 +11,14 @@
 				</td>
 				<td>
 					<p>
-						Número de Registros: <a href="#/data/{{form.id}}">{{form.dataCount}}</a>
+						Número de Registros: <a href="#/data/{{form._id}}">{{form.dataCount}}</a>
 					</p>
 				</td>
 				<td>
 					<div class="linksForm">
-						<a class="btn btn-success" href="#/form/{{form.id}}">Cadastro</a>
-						<a href="#/edit/{{form.id}}" class="btn">Editar</a>
-						<a class="btn btn-primary" ng-click="removeForm(form.id)">Excluir</a>
+						<a class="btn btn-success" href="#/form/{{form._id}}">Cadastro</a>
+						<a href="#/edit/{{form._id}}" class="btn">Editar</a>
+						<a class="btn btn-primary" ng-click="removeForm(form._id)">Excluir</a>
 					</div>
 				</td>
 			</tr>
