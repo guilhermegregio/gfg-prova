@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('provaClientApp', ['ngResource', 'provaClientAppFilters'])
+angular.module('provaClientApp', ['ngResource'])
 	.config(function($routeProvider, $httpProvider) {
 	$routeProvider
 		.when('/', {
