@@ -16,6 +16,8 @@ angular.module('provaClientApp')
 				postData[data.label] = data.value;
 			});
 
-			console.log(postData);
+			templateService.save({templateId: $routeParams.templateEdit}, postData, function(viewForm) {
+				console.log(viewForm);
+			});
 		};
 	});

@@ -5,11 +5,11 @@
 				<label for="name">{{field.label}}:</label>
 				
 				<div ng-switch on="field.radios == null" >
-					<input ng-switch-when="true" type="{{field.type}}" ng-readonly="field.readOnly" value="{{field.value}}" placeholder="{{field.placeholder}}" />
+					<input ng-switch-when="true" type="{{field.type}}" ng-readonly="field.readOnly" ng-model="field.value" placeholder="{{field.placeholder}}" />
 					
 					<div ng-switch-default>
 						<span ng-repeat="(key,val) in field.radios">
-							{{val.label}}<input type="{{field.type}}" value="{{val.label}}" name="{{field.label}}">
+							{{val.label}}<input type="{{field.type}}" value="{{val.label}}" name="{{field.label}}" ng-click="field.value = val.value">
 						</span>
 					</div>
 				</div>
