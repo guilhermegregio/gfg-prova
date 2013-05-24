@@ -6,7 +6,7 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="dado in dataForm.data">
-			<td ng-repeat="(key,val) in dataForm.fields">{{dado}}</td>
+			<td ng-repeat="(key,val) in dataForm.fields">{{dado[val.label]}}</td>
 		</tr>
 	</tbody>
 </table>
