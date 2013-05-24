@@ -1,6 +1,6 @@
 <div class="main">
 	<div class="hero-unit edit">
-		<label for="">Título formulário</label><input type="text" placeholder="titulo formulário" ng-model="dataForm.title" required> <br>
+		<label for="">Título formulário</label><input type="text" placeholder="titulo formulário" ng-model="form.title" required /><br />
 
 		<table class="viewEdit table table-bordered">
 			<thead>
@@ -68,7 +68,7 @@
 
 		<div ng-show="fieldNew.type=='radio'">
 			<label>Radio:</label>
-			<input type="text" ng-model="fieldNew.radios" placeholder="Exemp: Masc:M, Femi:F" />
+			<input type="text" placeholder="Exemp: Masc:M, Femi:F" ng-model="fieldNew.radiosView" ng-change="changeRadio(fieldNew)" />
 		</div>
 		<div>
 			<label>Opções:</label>

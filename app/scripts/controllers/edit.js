@@ -8,14 +8,17 @@ angular.module('provaClientApp')
 	$scope.fieldNew = {};
 	$scope.newFieldFlag = false;
 	$scope.form = {};
+
 	templateService.get({templateId: $routeParams.templateEdit}, function(form) {
 		$scope.form = form;
-		console.log($scope.form.fields);
-		$scope.form.fields.forEach(function (data) {
-			$scope.fieldList.push(data);
-		});
+		$scope.fieldList = $scope.form.fields;
 	});
 
+	var createForm = function () {
+		templateService.update({templateId: $routeParams.templateEdit}, $scope.form, function () {
+			console.log('aki');
+		});
+	};
 
 	var fieldError = function (field) {
 		var error = 0;
@@ -30,6 +33,31 @@ angular.module('provaClientApp')
 		return true;
 	};
 
+	var toString = function (arrayRadios) {
+		var radios = '';
+		arrayRadios.forEach(function (data) {
+			radios += data.label + ':' + data.value + ',';
+		});
+		return radios.substring(0, radios.lastIndexOf(','));
+	};
+
+	var toArray = function (input) {
+		var arrayRadios = [];
+		var radios = input.split(',');
+
+		radios.forEach(function (data) {
+			var radio = data.split(':');
+
+			arrayRadios.push({label: radio[0], value: radio[1]});
+		});
+
+		return arrayRadios;
+	};
+
+	$scope.changeRadio = function (field) {
+		field.radios = toArray(field.radiosView);
+	};
+
 	$scope.addField = function () {
 		if (fieldError($scope.fieldNew)) {
 			return false;
@@ -42,8 +70,11 @@ angular.module('provaClientApp')
 		$('#addField').modal('hide');
 	};
 
-	$scope.editField = function (form) {
-		$scope.fieldNew = form;
+	$scope.editField = function (field) {
+		if (field.radios) {
+			field.radiosView = toString(field.radios);
+		}
+		$scope.fieldNew = field;
 		$scope.newFieldFlag = false;
 	};
 
@@ -53,4 +84,7 @@ angular.module('provaClientApp')
 		}
 		$scope.fieldList = $scope.fieldList.filter(removeItem);
 	};
+
+	$scope.createForm = createForm;
+
 });
