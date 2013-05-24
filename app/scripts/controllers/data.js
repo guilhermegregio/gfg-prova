@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('DataCtrl', function ($scope) {
+	.controller('DataCtrl', function ($scope, $routeParams) {
+
+		console.log($routeParams);
+
 		$scope.dataForm = {
 			fields: [{label: 'id'}, {label: 'nome'}, {label: 'telefone'}, {label: 'email'}, {label: 'apelido'}],
 			data: [{
