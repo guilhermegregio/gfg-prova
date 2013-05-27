@@ -77,7 +77,7 @@
 				<button type="button" class="btn" ng-click="fieldNew.required = false; fieldNew.readOnly = true">Read Only</button>
 			</div>
 		</div>
-		<div>
+		<div ng-hide="fieldNew.type=='radio' || fieldNew.type=='checkbox'">
 			<label>Placeholder:</label>
 			<input type="text" ng-model="fieldNew.placeholder" placeholder="Caio Rolando da Rocha" />
 		</div>
@@ -85,7 +85,7 @@
 			<label>Valor Padrão:</label>
 			<input type="text" ng-model="fieldNew.value" placeholder="Caio Rolando da Rocha" />
 		</div>
-		<div>
+		<div ng-hide="fieldNew.type=='radio' || fieldNew.type=='checkbox'">
 			<label>Tamanho Máximo:</label>
 			<input type="number" ng-model="fieldNew.maxLength" placeholder="25" />
 		</div>

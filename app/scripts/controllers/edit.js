@@ -9,6 +9,8 @@ angular.module('provaClientApp')
 	$scope.newFieldFlag = false;
 	$scope.form = {};
 
+	document.querySelectorAll('.btn-success')[0].style.display = 'none';
+
 	templateService.get({templateId: $routeParams.templateEdit}, function(form) {
 		$scope.form = form;
 		$scope.fieldList = $scope.form.fields;

@@ -10,6 +10,8 @@ angular.module('provaClientApp')
 			fields: $scope.fieldList
 		};
 
+		document.querySelectorAll('.btn-success')[0].style.display = 'none';
+
 		$scope.createForm = function() {
 			if ($scope.form.title !== undefined) {
 				templateService.save($scope.form, function () {
