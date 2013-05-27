@@ -1,4 +1,4 @@
-/*global $*/
+/* global $*/
 'use strict';
 
 angular.module('provaClientApp')
@@ -6,8 +6,27 @@ angular.module('provaClientApp')
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
 		$scope.newFieldFlag = false;
-		$scope.dataForm = {
+		$scope.form = {
 			fields: $scope.fieldList
+		};
+
+		$scope.createForm = function() {
+			templateService.save($scope.form, function () {
+				console.log('success');
+			});
+		};
+
+		var toArray = function (input) {
+			var arrayRadios = [];
+			var radios = input.split(',');
+
+			radios.forEach(function (data) {
+				var radio = data.split(':');
+
+				arrayRadios.push({label: radio[0], value: radio[1]});
+			});
+
+			return arrayRadios;
 		};
 
 		var fieldError = function (field) {
@@ -28,6 +47,11 @@ angular.module('provaClientApp')
 				return false;
 			}
 
+			if($scope.fieldNew.type === 'radio'){
+				var objRadios = toArray($scope.fieldNew.radios);
+				$scope.fieldNew.radios = objRadios;
+			}
+
 			$scope.fieldList.push($scope.fieldNew);
 
 			$scope.fieldNew = {};
@@ -42,12 +66,5 @@ angular.module('provaClientApp')
 
 		$scope.removeField = function (field) {
 			$scope.fieldList.splice($scope.fieldList.indexOf(field), 1);
-		};
-
-		$scope.createForm = function() {
-			if ($scope.dataForm.title && $scope.dataForm.fields.length !== 0) {
-				console.log($scope.dataForm);
-				templateService.save($scope.dataForm);
-			}
 		};
 	});
