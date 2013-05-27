@@ -31,12 +31,5 @@ describe('Testando o EditCtrl', function() {
  
       expect(scope.form).toEqualData({id: '1'});
     });
-<<<<<<< HEAD
-  }));
-
-  it('should attach a list of fieldList to the scope', function () {
-    expect(0).toBe(0);
-=======
->>>>>>> 4550e8152c7cb4c04a929ef5a1dc7e4c8efa8036
   });
 });

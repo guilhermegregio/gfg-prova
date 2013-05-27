@@ -31,12 +31,5 @@ describe('Testando o FormCtrl', function() {
  
       expect(scope.viewForm).toEqualData({id: '1'});
     });
-<<<<<<< HEAD
-  }));
-
-  it('should attach a list of viewForm to the scope', function () {
-    expect(5).toBe(5);
-=======
->>>>>>> 4550e8152c7cb4c04a929ef5a1dc7e4c8efa8036
   });
 });

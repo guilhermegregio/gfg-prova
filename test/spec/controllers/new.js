@@ -30,12 +30,5 @@ describe('Testando o NewCtrl', function() {
  
       //expect(scope.formList).toEqualData([{id: '1'}, {id: '2'}]);
     });
-<<<<<<< HEAD
-  }));
-
-  it('should attach a list of dataForm to the scope', function () {
-    expect(0).toBe(0);
-=======
->>>>>>> 4550e8152c7cb4c04a929ef5a1dc7e4c8efa8036
   });
 });

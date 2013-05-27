@@ -31,12 +31,5 @@ describe('Testando o DataCtrl', function() {
  
       expect(scope.dataForm).toEqualData({id: '1'});
     });
-<<<<<<< HEAD
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(4).toBe(4);
-=======
->>>>>>> 4550e8152c7cb4c04a929ef5a1dc7e4c8efa8036
   });
 });
