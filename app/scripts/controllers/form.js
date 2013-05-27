@@ -8,6 +8,8 @@ angular.module('provaClientApp')
 
 		templateService.get({templateId: $routeParams.templateEdit}, function(viewForm) {
 			$scope.viewForm = viewForm;
+		}, function(data){
+			console.log(data);
 		});
 
 		$scope.cadastrar = function () {
@@ -18,6 +20,8 @@ angular.module('provaClientApp')
 
 			templateService.save({templateId: $routeParams.templateEdit}, postData, function(viewForm) {
 				console.log(viewForm);
+			}, function(data){
+				console.log(data);
 			});
 		};
 	});

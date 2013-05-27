@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('NewCtrl', function ($scope, templateService) {
+	.controller('NewCtrl', function ($scope, $location, templateService) {
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
 		$scope.newFieldFlag = false;
@@ -11,9 +11,17 @@ angular.module('provaClientApp')
 		};
 
 		$scope.createForm = function() {
-			templateService.save($scope.form, function () {
-				console.log('success');
-			});
+			if ($scope.form.title !== undefined) {
+				templateService.save($scope.form, function () {
+					$location.path('/');
+				}, function(data){
+					console.log(data);
+				});
+			}else if($scope.form.fields.length === 0){
+				document.querySelectorAll('.popForm')[0].focus();
+			}else{
+				document.querySelectorAll('.edit input')[0].focus();
+			}
 		};
 
 		var toArray = function (input) {

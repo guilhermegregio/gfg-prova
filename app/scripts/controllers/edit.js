@@ -12,11 +12,15 @@ angular.module('provaClientApp')
 	templateService.get({templateId: $routeParams.templateEdit}, function(form) {
 		$scope.form = form;
 		$scope.fieldList = $scope.form.fields;
+	}, function(data){
+		console.log(data);
 	});
 
 	var createForm = function () {
 		templateService.update({templateId: $routeParams.templateEdit}, $scope.form, function () {
 			console.log('aki');
+		}, function(data){
+			console.log(data);
 		});
 	};
 

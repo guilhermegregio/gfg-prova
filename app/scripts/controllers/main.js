@@ -12,6 +12,8 @@ angular.module('provaClientApp')
 		$scope.removeForm = function (id) {
 			templateService.delete({templateId: id}, function () {
 				$scope.formList.splice($scope.formList.indexOf({id: id}), 1);
+			}, function(data){
+				console.log(data);
 			});
 		};
 	});
