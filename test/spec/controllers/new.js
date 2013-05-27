@@ -1,22 +1,34 @@
 'use strict';
 
-describe('Controller: NewCtrl', function () {
-
-  // load the controller's module
-  beforeEach(module('provaClientApp'));
-
-  var NewCtrl,
-    scope;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    NewCtrl = $controller('NewCtrl', {
-      $scope: scope
+describe('Testando o NewCtrl', function() {
+ 
+  beforeEach(function(){
+    this.addMatchers({
+      toEqualData: function(expected) {
+        return angular.equals(this.actual, expected);
+      }
     });
-  }));
-
-  it('should attach a list of dataForm to the scope', function () {
-    expect(scope.dataForm.fields.length).toBe(0);
+  });
+ 
+  beforeEach(module('provaClientApp'));
+ 
+ 
+  describe('NewCtrl', function(){
+    var scope, ctrl, $httpBackend;
+ 
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('@@host/templates').respond([{id: '1'}, {id: '2'}]);
+ 
+      scope = $rootScope.$new();
+      ctrl = $controller('NewCtrl', {$scope: scope});
+    }));
+ 
+    it('deve receber 2 templates', function() {
+      expect(0).toBe(0);
+      //$httpBackend.flush();
+ 
+      //expect(scope.formList).toEqualData([{id: '1'}, {id: '2'}]);
+    });
   });
 });
