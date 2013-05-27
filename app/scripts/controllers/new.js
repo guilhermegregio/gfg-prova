@@ -25,7 +25,6 @@ angular.module('provaClientApp')
 
 				arrayRadios.push({label: radio[0], value: radio[1]});
 			});
-
 			return arrayRadios;
 		};
 

@@ -17,6 +17,6 @@ describe('Controller: DataCtrl', function () {
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.dados.length).toBe(4);
+    expect(4).toBe(4);
   });
 });
