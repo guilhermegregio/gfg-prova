@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('provaClientApp', ['ngResource'])
-	.config(function($routeProvider, $httpProvider) {
+	.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 		templateUrl: 'views/main.html',
@@ -25,21 +25,5 @@ angular.module('provaClientApp', ['ngResource'])
 	})
 		.otherwise({
 		redirectTo: '/'
-	});
-
-	$httpProvider.responseInterceptors.push(function($q) {
-		return function(promise) {
-
-			var onSuccess = function() {
-			};
-
-			var onError = function (response) {
-				$q.reject(response);
-			};
-
-			promise.then(onSuccess, onError);
-
-			return promise;
-		};
 	});
 });
