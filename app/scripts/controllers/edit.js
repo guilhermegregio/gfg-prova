@@ -21,7 +21,7 @@ angular.module('provaClientApp')
 	var createForm = function () {
 		templateService.update({templateId: $routeParams.templateEdit}, $scope.form, function () {
 		}, function(){
-			$scope.$emit('alertEvent', {status: 500, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
+			$scope.$emit('alertEvent', {status: 400, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
 		});
 	};
 

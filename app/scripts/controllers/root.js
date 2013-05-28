@@ -15,6 +15,9 @@ angular.module('provaClientApp')
 
 		$scope.upAlert = function () {
 			$('.alert')[0].style.marginTop = ($scope.heightAlert*-1)+'px';
+			setTimeout(function(){
+				$('.alert')[0].classList.remove('showAlert');
+			}, 500);
 		};
 
 		var showAlert = function (status) {
@@ -28,6 +31,7 @@ angular.module('provaClientApp')
 
 			alert.style.marginTop = ($scope.heightAlert*-1)+'px';
 
+			console.log(window.location.hash, alert.classList.contains('showAlert'));
 			setTimeout(function(){
 				alert.classList.add('showAlert');
 				alert.style.visibility = 'visible';
