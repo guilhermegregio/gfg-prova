@@ -14,15 +14,14 @@ angular.module('provaClientApp')
 	templateService.get({templateId: $routeParams.templateEdit}, function(form) {
 		$scope.form = form;
 		$scope.fieldList = $scope.form.fields;
-	}, function(data){
-		console.log(data);
+	}, function(){
+		$scope.$emit('alertEvent', {status: 500, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
 	});
 
 	var createForm = function () {
 		templateService.update({templateId: $routeParams.templateEdit}, $scope.form, function () {
-			console.log('aki');
-		}, function(data){
-			console.log(data);
+		}, function(){
+			$scope.$emit('alertEvent', {status: 500, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
 		});
 	};
 
@@ -89,6 +88,10 @@ angular.module('provaClientApp')
 			return element.label !== form.label;
 		}
 		$scope.fieldList = $scope.fieldList.filter(removeItem);
+	};
+
+	$scope.upAlert = function () {
+		console.log('yahoo');
 	};
 
 	$scope.createForm = createForm;

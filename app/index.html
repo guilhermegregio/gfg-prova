@@ -3,69 +3,77 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="provaClientApp">
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
+</head>
+<body ng-app="provaClientApp">
+	<!--[if lt IE 7]>
+	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+	<![endif]-->
 
-    <!--[if lt IE 9]>
-      <script src="components/es5-shim/es5-shim.js"></script>
-      <script src="components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+	<!--[if lt IE 9]>
+	<script src="components/es5-shim/es5-shim.js"></script>
+	<script src="components/json3/lib/json3.min.js"></script>
+	<![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a class="brand" href="#">Coletor</a>
-          <ul class="nav" ng-init="actives=['active', '', '', '']">
-            <li ng-class="actives[0]"><a href="#/" ng-click="actives=['active', '', '', '']">Home</a></li>
-          </ul>
-        </div>
-      </div>
-      <div ng-view></div>
-    </div>
-    
-    <!-- build:js components/components.js -->
-    <script src="components/angular/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/jquery/jquery.min.js"></script>
-    <script src="components/bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="components/bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="components/bootstrap/js/bootstrap-popover.js"></script>
-    <script src="components/bootstrap/js/bootstrap-button.js"></script>
-    <script src="components/bootstrap/js/bootstrap-modal.js"></script>
-    <script src="components/bootstrap/js/bootstrap-transition.js"></script>
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/app.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/services/formTemplateService.js"></script>
-    <script src="scripts/services/formDataService.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/edit.js"></script>
-    <script src="scripts/controllers/data.js"></script>
-    <script src="scripts/controllers/form.js"></script>
-    <script src="scripts/controllers/new.js"></script>
-    <!-- endbuild -->
+	<!-- Add your site or application content here -->
+	<div class="container" ng-controller="RootCtrl">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#">Coletor</a>
+				<ul class="nav" ng-init="actives=['active', '', '', '']">
+					<li ng-class="actives[0]"><a href="#/" ng-click="actives=['active', '', '', '']">Home</a></li>
+				</ul>
+			</div>
+		</div>
+		<div ng-view></div>
+		<div class="alert">
+			<button ng-click="upAlert()" type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>Warning!</strong>
+			<ul>
+				<li ng-repeat="message in messages">{{message.message}}</li>
+			</ul>
+		</div>
+	</div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-  </body>
+	<!-- build:js components/components.js -->
+	<script src="components/angular/angular.js"></script>
+	<script src="components/angular-resource/angular-resource.js"></script>
+	<script src="components/jquery/jquery.min.js"></script>
+	<script src="components/bootstrap/js/bootstrap-tooltip.js"></script>
+	<script src="components/bootstrap/js/bootstrap-dropdown.js"></script>
+	<script src="components/bootstrap/js/bootstrap-popover.js"></script>
+	<script src="components/bootstrap/js/bootstrap-button.js"></script>
+	<script src="components/bootstrap/js/bootstrap-modal.js"></script>
+	<script src="components/bootstrap/js/bootstrap-transition.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js scripts/app.js -->
+	<script src="scripts/app.js"></script>
+	<script src="scripts/services/formTemplateService.js"></script>
+	<script src="scripts/services/formDataService.js"></script>
+	<script src="scripts/controllers/root.js"></script>
+	<script src="scripts/controllers/main.js"></script>
+	<script src="scripts/controllers/edit.js"></script>
+	<script src="scripts/controllers/data.js"></script>
+	<script src="scripts/controllers/form.js"></script>
+	<script src="scripts/controllers/new.js"></script>
+	<!-- endbuild -->
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
 </html>

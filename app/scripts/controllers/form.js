@@ -8,8 +8,8 @@ angular.module('provaClientApp')
 
 		templateService.get({templateId: $routeParams.templateEdit}, function(viewForm) {
 			$scope.viewForm = viewForm;
-		}, function(data){
-			console.log(data);
+		}, function(){
+			$scope.$emit('alertEvent', {status: 500, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
 		});
 
 		$scope.cadastrar = function () {
@@ -20,8 +20,8 @@ angular.module('provaClientApp')
 
 			templateService.save({templateId: $routeParams.templateEdit}, postData, function(viewForm) {
 				console.log(viewForm);
-			}, function(data){
-				console.log(data);
+			}, function(){
+				$scope.$emit('alertEvent', {status: 500, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
 			});
 		};
 	});

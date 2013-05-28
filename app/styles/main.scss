@@ -12,6 +12,19 @@
 		text-overflow: ellipsis;
 	}
 }
+.alert{
+	width: 940px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -470px;
+	margin-top: 0;
+	box-sizing: border-box;
+	visibility: hidden;
+}
+.showAlert{
+	@include transition-duration(0.5s);
+}
 .linksForm{
 	float: right;
 }
