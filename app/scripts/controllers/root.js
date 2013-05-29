@@ -7,7 +7,7 @@ angular.module('provaClientApp')
 		$scope.heightAlert = 0;
 		$scope.$on('alertEvent', function (ev, msg) {
 			ev.preventDefault();
-			$scope.messages = msg.messages;
+			$scope.messages = msg.errors;
 			$scope.$watch('messages', function(){
 				showAlert(msg.status);
 			});
@@ -22,7 +22,6 @@ angular.module('provaClientApp')
 
 		var showAlert = function (status) {
 			var alert = $('.alert')[0];
-
 			$scope.heightAlert = alert.offsetHeight;
 
 			if (status === 500) {
@@ -31,7 +30,7 @@ angular.module('provaClientApp')
 
 			alert.style.marginTop = ($scope.heightAlert*-1)+'px';
 
-			console.log(window.location.hash, alert.classList.contains('showAlert'));
+			//console.log(window.location.hash, alert.classList.contains('showAlert'));
 			setTimeout(function(){
 				alert.classList.add('showAlert');
 				alert.style.visibility = 'visible';
