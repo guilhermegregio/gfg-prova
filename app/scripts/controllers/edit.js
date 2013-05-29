@@ -14,14 +14,14 @@ angular.module('provaClientApp')
 	templateService.get({templateId: $routeParams.templateEdit}, function(form) {
 		$scope.form = form;
 		$scope.fieldList = $scope.form.fields;
-	}, function(){
-		$scope.$emit('alertEvent', {status: 500, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
+	}, function(data){
+		$scope.$emit('alertEvent', data);
 	});
 
 	var createForm = function () {
 		templateService.update({templateId: $routeParams.templateEdit}, $scope.form, function () {
-		}, function(){
-			$scope.$emit('alertEvent', {status: 400, messages: [{message: 'alguma coisa 1'}, {message: 'alguma coisa 2'}, {message: 'alguma coisa 3'}]});
+		}, function(data){
+			$scope.$emit('alertEvent', data);
 		});
 	};
 

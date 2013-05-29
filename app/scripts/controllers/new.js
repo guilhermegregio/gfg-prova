@@ -17,7 +17,7 @@ angular.module('provaClientApp')
 				templateService.save($scope.form, function () {
 					$location.path('/');
 				}, function(data){
-					console.log(data);
+					$scope.$emit('alertEvent', data);
 				});
 			}else if($scope.form.fields.length === 0){
 				document.querySelectorAll('.popForm')[0].focus();
