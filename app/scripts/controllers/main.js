@@ -5,7 +5,7 @@ angular.module('provaClientApp')
 
 		$scope.formList = [];
 
-		$scope.$emit('alertEvent', {errors: [{message: 'alguma coisa', category:'teste testes'}]});
+		//$scope.$emit('alertEvent', {errors: [{message: 'alguma coisa', category:'teste testes'}]});
 
 		templateService.query(function(templates) {
 			$scope.formList = templates;

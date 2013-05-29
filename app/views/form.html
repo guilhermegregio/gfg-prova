@@ -3,7 +3,6 @@
 		<legend>{{viewForm.title}}</legend>
 			<article class="article" ng-model="checked" ng-repeat="field in viewForm.fields">
 				<label for="name">{{field.label}}:</label>
-				
 				<div ng-switch on="field.radios == null" >
 					<input ng-switch-when="true" type="{{field.type}}" ng-readonly="field.readOnly" ng-model="field.value" placeholder="{{field.placeholder}}" />
 					
