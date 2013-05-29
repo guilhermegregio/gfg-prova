@@ -127,11 +127,11 @@ module.exports = function (grunt) {
 		htmlmin: {
 			views: {
 				options: {
-					useShortDoctype: true,
-					collapseBooleanAttributes: true,
-					removeRedundantAttributes: true,
+					//useShortDoctype: true,
+					//collapseBooleanAttributes: true,
+					//removeRedundantAttributes: true,
 					removeComments: true,
-					collapseWhitespace: true
+					//collapseWhitespace: true
 				},
 				files: [{
 					expand: true,
