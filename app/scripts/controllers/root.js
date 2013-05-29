@@ -7,10 +7,9 @@ angular.module('provaClientApp')
 		$scope.heightAlert = 0;
 		$scope.$on('alertEvent', function (ev, msg) {
 			ev.preventDefault();
-			$scope.messages = msg.messages;
+			$scope.messages = msg.errors;
 			$scope.$watch('messages', function(){
 				showAlert(msg.status);
-				console.log(msg);
 			});
 		});
 
