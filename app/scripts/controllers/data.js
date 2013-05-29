@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('DataCtrl', function ($scope, $routeParams, templateService) {
+	.controller('DataCtrl', function ($scope, $routeParams, dataFormService) {
 
 		$scope.dataForm = {};
-		templateService.get({templateId: $routeParams.templateId}, function(templateForm) {
+		dataFormService.get({templateId: $routeParams.templateId}, function(templateForm) {
 			$scope.dataForm = templateForm;
 		}, function(data){
 			$scope.$emit('alertEvent', data);

@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('FormCtrl', function ($scope, $routeParams, templateService) {
+	.controller('FormCtrl', function ($scope, $routeParams, dataFormService) {
 
 		$scope.data = {};
 		$scope.viewForm = {};
 
-		templateService.get({templateId: $routeParams.templateEdit}, function(viewForm) {
+		dataFormService.get({templateId: $routeParams.templateEdit}, function(viewForm) {
 			$scope.viewForm = viewForm;
 		}, function(data){
 			$scope.$emit('alertEvent', data);
@@ -18,7 +18,7 @@ angular.module('provaClientApp')
 				postData[data.label] = data.value;
 			});
 
-			templateService.save({templateId: $routeParams.templateEdit}, postData, function(viewForm) {
+			dataFormService.save({templateId: $routeParams.templateEdit}, postData, function(viewForm) {
 				console.log(viewForm);
 			}, function(data){
 				$scope.$emit('alertEvent', data);

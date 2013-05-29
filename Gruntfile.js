@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		app: 'app',
 		dist: 'dist',
 		tmp: '.tmp',
-		host: '/prova'
+		host: '/coletor'
 	};
 
 	try {
