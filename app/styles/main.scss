@@ -21,6 +21,7 @@
 	margin-top: 0;
 	box-sizing: border-box;
 	visibility: hidden;
+	z-index: 1111;
 }
 .showAlert{
 	@include transition-duration(0.5s);

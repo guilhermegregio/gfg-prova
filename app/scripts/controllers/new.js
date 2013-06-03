@@ -20,8 +20,10 @@ angular.module('provaClientApp')
 					$scope.$emit('alertEvent', data);
 				});
 			}else if($scope.form.fields.length === 0){
+				$scope.$emit('alertEvent', {errors: [{message: 'Deve conter ao menos um campo!'}]});
 				document.querySelectorAll('.popForm')[0].focus();
 			}else{
+				$scope.$emit('alertEvent', {errors: [{message: 'Preencher o campo Título do Formulário'}]});
 				document.querySelectorAll('.edit input')[0].focus();
 			}
 		};
@@ -38,21 +40,62 @@ angular.module('provaClientApp')
 			return arrayRadios;
 		};
 
-		var fieldError = function (field) {
-			var error = 0;
+		var ValidateFields = function (fieldModel) {
+			this.field = fieldModel;
+			this.messageErrors = [];
 
-			error += field.type === undefined || field.type === '' ? 1 : 0;
-			error += field.label === undefined || field.label === '' ? 1 : 0;
+			this.sendErrors = function () {
+				$scope.$emit('alertEvent', {errors: this.messageErrors});
+			};
 
-			if (error === 0) {
-				return false;
-			}
+			this.addErrors = function () {
+				var field = this.field,
+					messages = [],
+					validateRadio = /(\w\:\w)/g,
+					elem = $('.pop');
 
-			return true;
+				if (field.type === undefined || field.type === '') {
+					messages.push({message: 'O campo TIPO é obrigatório'});
+					elem.children('select').focus();
+				}else if (field.label === undefined) {
+					elem.children('input[type=text]').eq(0).focus();
+				}else if (field.radios === undefined) {
+					$(elem).children('div').children('.fieldRadios').focus();
+				}
+				if (field.label === undefined || field.label === '') {
+					messages.push({message: 'O campo LABEL é obrigatório'});
+				}
+				if (field.type === 'radio') {
+					if (field.radios === undefined || field.radios === '') {
+						messages.push({message: 'O campo RADIOS é obrigatório'});
+
+					}else if (field.radios.length > 0) {
+						if (!validateRadio.test(field.radios)) {
+							messages.push({message: 'O campo RADIOS esta incorreto! Insira conforme o exemplo: Masculino:M, Feminino:F'});
+						}
+					}
+				}
+
+				this.messageErrors = messages;
+			};
+
+			this.hasErrors = function () {
+
+				if (this.messageErrors.length === 0) {
+					return false;
+				}
+
+				return true;
+			};
+
+			this.addErrors();
 		};
 
 		$scope.addField = function () {
-			if (fieldError($scope.fieldNew)) {
+			var validate = new ValidateFields($scope.fieldNew);
+
+			if (validate.hasErrors()) {
+				validate.sendErrors();
 				return false;
 			}
 
