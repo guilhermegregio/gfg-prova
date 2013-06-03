@@ -5,7 +5,7 @@ angular.module('provaClientApp')
 	.controller('NewCtrl', function ($scope, $location, templateService) {
 		$scope.fieldList = [];
 		$scope.fieldNew = {};
-		$scope.newFieldFlag = false;
+		$scope.currentField = {};
 		$scope.form = {
 			fields: $scope.fieldList
 		};
@@ -40,6 +40,18 @@ angular.module('provaClientApp')
 			return arrayRadios;
 		};
 
+		var toString = function (arrayRadios) {
+			var radios = '';
+			arrayRadios.forEach(function (data) {
+				radios += data.label + ':' + data.value + ',';
+			});
+			return radios.substring(0, radios.lastIndexOf(','));
+		};
+
+		$scope.changeRadio = function (field) {
+			field.radios = toArray(field.radiosView);
+		};
+
 		var ValidateFields = function (fieldModel) {
 			this.field = fieldModel;
 			this.messageErrors = [];
@@ -51,7 +63,6 @@ angular.module('provaClientApp')
 			this.addErrors = function () {
 				var field = this.field,
 					messages = [],
-					validateRadio = /(\w\:\w)/g,
 					elem = $('.pop');
 
 				if (field.type === undefined || field.type === '') {
@@ -62,16 +73,26 @@ angular.module('provaClientApp')
 				}else if (field.radios === undefined) {
 					$(elem).children('div').children('.fieldRadios').focus();
 				}
+
 				if (field.label === undefined || field.label === '') {
 					messages.push({message: 'O campo LABEL é obrigatório'});
 				}
+
 				if (field.type === 'radio') {
 					if (field.radios === undefined || field.radios === '') {
 						messages.push({message: 'O campo RADIOS é obrigatório'});
 
 					}else if (field.radios.length > 0) {
-						if (!validateRadio.test(field.radios)) {
+						var str = field.radiosView;
+						var findArray = str.match(/\w\:\w/g);
+						var haveArray = str.split(',');
+
+						if (findArray === null) {
 							messages.push({message: 'O campo RADIOS esta incorreto! Insira conforme o exemplo: Masculino:M, Feminino:F'});
+						} else {
+							if(findArray.length !== haveArray.length) {
+								messages.push({message: 'O campo RADIOS esta incorreto! Insira conforme o exemplo: Masculino:M, Feminino:F'});
+							}
 						}
 					}
 				}
@@ -100,20 +121,31 @@ angular.module('provaClientApp')
 			}
 
 			if($scope.fieldNew.type === 'radio'){
-				var objRadios = toArray($scope.fieldNew.radios);
+				var objRadios = toArray($scope.fieldNew.radiosView);
 				$scope.fieldNew.radios = objRadios;
 			}
 
-			$scope.fieldList.push($scope.fieldNew);
+			if ($scope.currentField.label === undefined) {
+				$scope.fieldList.push($scope.fieldNew);
+			} else {
+				$.extend($scope.currentField, $scope.fieldNew);
+			}
 
 			$scope.fieldNew = {};
+			$scope.currentField = {};
 
 			$('#addField').modal('hide');
 		};
 
-		$scope.editField = function (form) {
-			$scope.fieldNew = form;
-			$scope.newFieldFlag = false;
+		$scope.editField = function (currentField) {
+			$scope.currentField = currentField;
+
+			var field = $.extend({}, currentField);
+
+			if (field.radios) {
+				field.radiosView = toString(field.radios);
+			}
+			$scope.fieldNew = $.extend({}, field);
 		};
 
 		$scope.removeField = function (field) {

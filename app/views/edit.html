@@ -1,11 +1,11 @@
 <div class="main">
 	<div class="hero-unit edit">
-		<label for="">Título formulário</label><input type="text" placeholder="titulo formulário" ng-model="form.title" required /><br />
+		<label for="">Título formulário</label><input class="title" type="text" placeholder="titulo formulário" ng-model="form.title" required /><br />
 
 		<table class="viewEdit table table-bordered">
 			<thead>
 				<tr>
-					<th colspan="10"><h3>Campos</h3><button class="btn btn-mini popForm" ng-click="fieldNew = {}; newFieldFlag = true;" data-toggle="modal" data-target="#addField">Novo Campo</button></th>
+					<th colspan="10"><h3>Campos</h3><button class="btn btn-mini popForm" ng-click="fieldNew = {};" data-toggle="modal" data-target="#addField">Novo Campo</button></th>
 				</tr>
 				<tr>
 					<th>Label</th>
@@ -68,7 +68,7 @@
 
 		<div ng-show="fieldNew.type=='radio'">
 			<label>Radio:</label>
-			<input class="fieldRadios" type="text" placeholder="Exemp: Masc:M, Femi:F" ng-model="fieldNew.radios" ng-change="changeRadio(fieldNew)" required/>
+			<input class="fieldRadios" type="text" placeholder="Exemp: Masc:M, Femi:F" ng-model="fieldNew.radiosView" ng-change="changeRadio(fieldNew)" required/>
 		</div>
 		<div>
 			<label>Opções:</label>
@@ -91,7 +91,6 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-success" ng-click="addField()" ng-show="newFieldFlag">Adcionar</button>
-		<button class="btn" data-dismiss="modal">Close</button>
+		<button class="btn btn-success" ng-click="addField()">Adcionar</button>
 	</div>
 </div>
