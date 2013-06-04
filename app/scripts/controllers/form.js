@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('provaClientApp')
-	.controller('FormCtrl', function ($scope, $routeParams, dataFormService) {
+	.controller('FormCtrl', function ($scope, $location, $routeParams, dataFormService) {
 
 		$scope.data = {};
 		$scope.viewForm = {};
@@ -12,38 +12,38 @@ angular.module('provaClientApp')
 			$scope.$emit('alertEvent', data);
 		});
 
-		var ValidateFields = function (fieldModel) {
-			this.field = fieldModel;
-			this.messageErrors = [];
+		// var ValidateFields = function (fieldModel) {
+		// 	this.field = fieldModel;
+		// 	this.messageErrors = [];
 
-			this.sendErrors = function () {
-				$scope.$emit('alertEvent', {errors: this.messageErrors});
-			};
+		// 	this.sendErrors = function () {
+		// 		$scope.$emit('alertEvent', {errors: this.messageErrors});
+		// 	};
 
-			this.addErrors = function () {
-				var field = this.field,
-					messages = [];
+		// 	this.addErrors = function () {
+		// 		var field = this.field,
+		// 			messages = [];
 
-				for(var prop in field){
-					if (field[prop] === '' || field[prop] === undefined) {
-						document.querySelector('input').focus();
-						messages.push({message: 'O campo '+prop+' é obrigatório'});
-					}
-				}
+		// 		for(var prop in field){
+		// 			if (field[prop] === '' || field[prop] === undefined) {
+		// 				document.querySelector('input').focus();
+		// 				messages.push({message: 'O campo '+prop+' é obrigatório'});
+		// 			}
+		// 		}
 
-				this.messageErrors = messages;
-			};
+		// 		this.messageErrors = messages;
+		// 	};
 
-			this.hasErrors = function () {
-				if (this.messageErrors.length === 0) {
-					return false;
-				}
+		// 	this.hasErrors = function () {
+		// 		if (this.messageErrors.length === 0) {
+		// 			return false;
+		// 		}
 
-				return true;
-			};
+		// 		return true;
+		// 	};
 
-			this.addErrors();
-		};
+		// 	this.addErrors();
+		// };
 
 		$scope.cadastrar = function () {
 			var postData = {};
@@ -51,15 +51,8 @@ angular.module('provaClientApp')
 				postData[data.label] = data.value;
 			});
 
-			var validate = new ValidateFields(postData);
-
-			if (validate.hasErrors()) {
-				validate.sendErrors();
-				return false;
-			}
-
-			dataFormService.save({templateId: $routeParams.templateEdit}, postData, function(viewForm) {
-				console.log(viewForm);
+			dataFormService.save({templateId: $routeParams.templateEdit}, postData, function() {
+				$location.path('/data/' + $routeParams.templateEdit);
 			}, function(data){
 				$scope.$emit('alertEvent', data);
 			});
