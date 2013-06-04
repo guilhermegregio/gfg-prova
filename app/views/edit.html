@@ -73,8 +73,8 @@
 		<div>
 			<label>Opções:</label>
 			<div class="btn-group" data-toggle="buttons-checkbox">
-				<button type="button" class="btn" ng-click="fieldNew.required = true; fieldNew.readOnly = false">Required</button>
-				<button type="button" class="btn" ng-click="fieldNew.required = false; fieldNew.readOnly = true">Read Only</button>
+				<button type="button" class="btn" ng-click="toggleRequired(fieldNew, $event)">Required</button>
+				<button type="button" class="btn" ng-click="toggleReadonly(fieldNew, $event)">Read Only</button>
 			</div>
 		</div>
 		<div ng-hide="fieldNew.type=='radio' || fieldNew.type=='checkbox'">
