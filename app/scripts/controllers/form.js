@@ -54,7 +54,7 @@ angular.module('provaClientApp')
 			dataFormService.save({templateId: $routeParams.templateEdit}, postData, function() {
 				$location.path('/data/' + $routeParams.templateEdit);
 			}, function(data){
-				$scope.$emit('alertEvent', JSON.parse(data.responseText));
+				$scope.$emit('alertEvent', data.data);
 			});
 		};
 	});
