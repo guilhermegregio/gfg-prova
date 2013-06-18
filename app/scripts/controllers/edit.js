@@ -31,6 +31,31 @@ angular.module('provaClientApp')
 		}
 	};
 
+	var toArray = function (input) {
+		var arrayRadios = [];
+		var radios = input.split(',');
+
+		radios.forEach(function (data) {
+			var radio = data.split(':');
+
+			arrayRadios.push({label: radio[0], value: radio[1]});
+		});
+
+		return arrayRadios;
+	};
+
+	var toString = function (arrayRadios) {
+		var radios = '';
+		arrayRadios.forEach(function (data) {
+			radios += data.label + ':' + data.value + ',';
+		});
+		return radios.substring(0, radios.lastIndexOf(','));
+	};
+
+	$scope.changeRadio = function (field) {
+		field.radios = toArray(field.radiosView);
+	};
+
 	var ValidateFields = function (fieldModel) {
 		this.field = fieldModel;
 		this.messageErrors = [];
@@ -89,31 +114,6 @@ angular.module('provaClientApp')
 		};
 
 		this.addErrors();
-	};
-
-	var toString = function (arrayRadios) {
-		var radios = '';
-		arrayRadios.forEach(function (data) {
-			radios += data.label + ':' + data.value + ',';
-		});
-		return radios.substring(0, radios.lastIndexOf(','));
-	};
-
-	var toArray = function (input) {
-		var arrayRadios = [];
-		var radios = input.split(',');
-
-		radios.forEach(function (data) {
-			var radio = data.split(':');
-
-			arrayRadios.push({label: radio[0], value: radio[1]});
-		});
-
-		return arrayRadios;
-	};
-
-	$scope.changeRadio = function (field) {
-		field.radios = toArray(field.radiosView);
 	};
 
 	$scope.addField = function () {

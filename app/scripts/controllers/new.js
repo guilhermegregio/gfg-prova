@@ -137,6 +137,18 @@ angular.module('provaClientApp')
 			$('#addField').modal('hide');
 		};
 
+		$scope.toggleRequired = function (field, ev) {
+			$(ev.currentTarget).siblings('.active').removeClass('active');
+			field.required = field.required === true ? false : true;
+			field.readOnly = false;
+		};
+
+		$scope.toggleReadonly = function (field, ev) {
+			$(ev.currentTarget).siblings('.active').removeClass('active');
+			field.readOnly = field.readOnly === true ? false : true;
+			field.required = false;
+		};
+
 		$scope.editField = function (currentField) {
 			$scope.currentField = currentField;
 
