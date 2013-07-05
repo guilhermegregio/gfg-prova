@@ -1,0 +1,96 @@
+<div class="main">
+	<div class="hero-unit edit">
+		<label for="">Título formulário</label><input class="title" type="text" placeholder="titulo formulário" ng-model="form.title" required=""><br>
+
+		<table class="viewEdit table table-bordered">
+			<thead>
+				<tr>
+					<th colspan="10"><h3>Campos</h3><button class="btn btn-mini popForm" ng-click="fieldNew = {};" data-toggle="modal" data-target="#addField">Novo Campo</button></th>
+				</tr>
+				<tr>
+					<th>Label</th>
+					<th>Type</th>
+					<th>Required</th>
+					<th>Readonly</th>
+					<th>Radios</th>
+					<th>MaxLength</th>
+					<th>Placeholder</th>
+					<th>Default</th>
+					<th>Edit/Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="field in fieldList">
+					<td>{{field.label}}</td>
+					<td>{{field.type}}</td>
+					<td>{{field.required}}</td>
+					<td>{{field.readOnly}}</td>
+					<td>
+						<ul>
+							<li ng-repeat="radio in field.radios">{{radio.label}} : {{radio.value}}</li>
+						</ul>
+					</td>
+					<td>{{field.maxLength}}</td>
+					<td>{{field.placeholder}}</td>
+					<td>{{field.value}}</td>
+					<td>
+						<div class="btPageEdit">
+							<button type="button" class="btn btn-primary btn-mini" ng-click="editField(field)" data-toggle="modal" data-target="#addField">Editar</button>
+							<button type="button" class="btn btn-danger btn-mini" ng-click="removeField(field); $event.stopPropagation()">Delete</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<button type="button" class="btn btn-success">Visualizar</button>
+		<button type="button" class="btn btn-primary" ng-click="createForm()">Gravar</button>
+	</div>
+</div>
+
+
+<div id="addField" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Adicionar Campo</h3>
+	</div>
+	<div class="modal-body pop">
+		<label>Tipo:</label>
+		<select ng-model="fieldNew.type" required="">
+			<option value="">Selecione</option>
+			<option value="text">Text</option>
+			<option value="radio">Radio</option>
+			<option value="checkbox">Checkbox</option>
+		</select>
+		
+		<label>Label:</label>
+		<input type="text" ng-model="fieldNew.label" placeholder="Nome" required="">
+
+		<div ng-show="fieldNew.type=='radio'">
+			<label>Radio:</label>
+			<input class="fieldRadios" type="text" placeholder="Exemp: Masc:M, Femi:F" ng-model="fieldNew.radiosView" ng-change="changeRadio(fieldNew)" required="">
+		</div>
+		<div>
+			<label>Opções:</label>
+			<div class="btn-group" data-toggle="buttons-checkbox">
+				<button type="button" class="btn" ng-click="toggleRequired(fieldNew, $event)">Required</button>
+				<button type="button" class="btn" ng-click="toggleReadonly(fieldNew, $event)">Read Only</button>
+			</div>
+		</div>
+		<div ng-hide="fieldNew.type=='radio' || fieldNew.type=='checkbox'">
+			<label>Placeholder:</label>
+			<input type="text" ng-model="fieldNew.placeholder" placeholder="Caio Rolando da Rocha">
+		</div>
+		<div>
+			<label>Valor Padrão:</label>
+			<input type="text" ng-model="fieldNew.value" placeholder="Caio Rolando da Rocha">
+		</div>
+		<div ng-hide="fieldNew.type=='radio' || fieldNew.type=='checkbox'">
+			<label>Tamanho Máximo:</label>
+			<input type="number" ng-model="fieldNew.maxLength" placeholder="25">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-click="addField()">Adcionar</button>
+	</div>
+</div>

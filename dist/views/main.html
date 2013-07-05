@@ -1,0 +1,27 @@
+<div class="main">
+	<h3>Formulários Registrados <a href="#/new" class="btn btn-mini">Criar novo formulário</a></h3>
+	<table class="table table-striped">
+		<tbody>
+			<tr ng-repeat="form in formList">
+				<td>
+					<strong>{{form.title}}</strong>
+				</td>
+				<td>
+					<span ng-repeat="label in form.fields">{{label.label}},</span>
+				</td>
+				<td>
+					<p>
+						Número de Registros: <a href="#/data/{{form._id}}">{{form.dataCount}}</a>
+					</p>
+				</td>
+				<td>
+					<div class="linksForm">
+						<a class="btn btn-success" href="#/form/{{form._id}}">Cadastro</a>
+						<a href="#/edit/{{form._id}}" class="btn">Editar</a>
+						<a class="btn btn-primary" ng-click="removeForm(form._id)">Excluir</a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
